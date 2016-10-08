@@ -100,6 +100,7 @@ class MDMusicStudioCell: UICollectionViewCell {
         case .MDSoundPlayingNotReadyToPlay:
             playButton.hidden = false
             playButton.setImage(UIImage.init(named: "play_button_inactive"), forState: UIControlState.Normal)
+            break
             
         case .MDSoundPlayingActive:
             recordingLabel.hidden = false
@@ -110,4 +111,29 @@ class MDMusicStudioCell: UICollectionViewCell {
             break
         }
     }
+    
+    func updateLoopButton(state: MDSoundLoopState) {
+        switch state {
+        case .MDSoundLoopReadyToLoop:
+            loopButton.hidden = false
+            loopButton.setImage(UIImage.init(named: "loop_button_active_off"), forState: UIControlState.Normal)
+            break
+            
+        case .MDSoundLoopNotReadyToLoop:
+            loopButton.hidden = false
+            loopButton.setImage(UIImage.init(named: "loop_button_inactive"), forState: UIControlState.Normal)
+            break
+            
+        case .MDSoundLoopActive:
+            recordButton.hidden = true
+            playButton.hidden = true
+            loopButton.hidden = false
+            loopButton.setImage(UIImage.init(named: "loop_button_active_on"), forState: UIControlState.Normal)
+            break
+        }
+    }
 }
+
+
+
+
