@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		60862A4C1DA425CA008B2CA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60862A4B1DA425CA008B2CA5 /* AppDelegate.swift */; };
-		60862A4E1DA425CA008B2CA5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60862A4D1DA425CA008B2CA5 /* ViewController.swift */; };
 		60862A511DA425CA008B2CA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60862A4F1DA425CA008B2CA5 /* Main.storyboard */; };
 		60862A531DA425CA008B2CA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60862A521DA425CA008B2CA5 /* Assets.xcassets */; };
 		60862A561DA425CA008B2CA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60862A541DA425CA008B2CA5 /* LaunchScreen.storyboard */; };
+		8DBEE89C1DA8CA4400413084 /* MDMainSoundStudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBEE89B1DA8CA4400413084 /* MDMainSoundStudioViewController.swift */; };
+		8DBEE8A01DA8CCF100413084 /* MDMusicStudioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBEE89F1DA8CCF100413084 /* MDMusicStudioCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		60862A481DA425CA008B2CA5 /* MrDudets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MrDudets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60862A4B1DA425CA008B2CA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		60862A4D1DA425CA008B2CA5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		60862A501DA425CA008B2CA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		60862A521DA425CA008B2CA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		60862A551DA425CA008B2CA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		60862A571DA425CA008B2CA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DBEE89B1DA8CA4400413084 /* MDMainSoundStudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDMainSoundStudioViewController.swift; sourceTree = "<group>"; };
+		8DBEE89F1DA8CCF100413084 /* MDMusicStudioCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDMusicStudioCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,31 @@
 		60862A4A1DA425CA008B2CA5 /* MrDudets */ = {
 			isa = PBXGroup;
 			children = (
+				8DBEE89E1DA8CCB400413084 /* MDCollectionView */,
+				8DBEE89D1DA8CC7200413084 /* Main Sound Studio Screen */,
 				60862A4B1DA425CA008B2CA5 /* AppDelegate.swift */,
-				60862A4D1DA425CA008B2CA5 /* ViewController.swift */,
 				60862A4F1DA425CA008B2CA5 /* Main.storyboard */,
 				60862A521DA425CA008B2CA5 /* Assets.xcassets */,
 				60862A541DA425CA008B2CA5 /* LaunchScreen.storyboard */,
 				60862A571DA425CA008B2CA5 /* Info.plist */,
 			);
 			path = MrDudets;
+			sourceTree = "<group>";
+		};
+		8DBEE89D1DA8CC7200413084 /* Main Sound Studio Screen */ = {
+			isa = PBXGroup;
+			children = (
+				8DBEE89B1DA8CA4400413084 /* MDMainSoundStudioViewController.swift */,
+			);
+			name = "Main Sound Studio Screen";
+			sourceTree = "<group>";
+		};
+		8DBEE89E1DA8CCB400413084 /* MDCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				8DBEE89F1DA8CCF100413084 /* MDMusicStudioCell.swift */,
+			);
+			name = MDCollectionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +154,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60862A4E1DA425CA008B2CA5 /* ViewController.swift in Sources */,
+				8DBEE89C1DA8CA4400413084 /* MDMainSoundStudioViewController.swift in Sources */,
 				60862A4C1DA425CA008B2CA5 /* AppDelegate.swift in Sources */,
+				8DBEE8A01DA8CCF100413084 /* MDMusicStudioCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +308,7 @@
 				60862A5C1DA425CA008B2CA5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
