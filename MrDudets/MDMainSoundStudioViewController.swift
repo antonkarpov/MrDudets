@@ -8,9 +8,13 @@
 
 import UIKit
 
+
 class MDMainSoundStudioViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     // MARK: - Variables
+    
+    var recordingState = MDSoundRecordingState.MDSoundRecoringInactive
+    var playingState = MDSoundPlayingState.MDSoundPlayingNotReadyToPlay
     
     @IBOutlet var collectionView: UICollectionView!
     var cellsDataSource: NSArray!
@@ -37,4 +41,36 @@ class MDMainSoundStudioViewController: UIViewController, UICollectionViewDelegat
         
         return cell
     }
+    
+    // MARK: - Actions
+    
+    @IBAction func recordButtonAction(sender: UIButton) {
+        let isRecording = true // Put the recorder state here
+        
+        if let cell = sender.superview?.superview {
+            let musicCell = cell as! MDMusicStudioCell
+            musicCell.updateRecordButton(isRecording ? MDSoundRecordingState.MDSoundRecordingActive : MDSoundRecordingState.MDSoundRecoringInactive)
+        }
+        
+    }
+
+    @IBAction func playButtonAction(sender: UIButton) {
+        let haveSoundForCell = true // Check if recorded sound already exist
+        let isPlaying = true // Put the player state here
+        
+        if let cell = sender.superview?.superview {
+            let musicCell = cell as! MDMusicStudioCell
+            
+            if isPlaying {
+                musicCell.updatePlayButton(MDSoundPlayingState.MDSoundPlayingActive)
+            } else {
+                musicCell.updatePlayButton(haveSoundForCell ? MDSoundPlayingState.MDSoundPlayingReadyToPlay : MDSoundPlayingState.MDSoundPlayingNotReadyToPlay)
+            }
+        }
+        
+    }
+
+    @IBAction func loopButtonAction(sender: UIButton) {  
+    }
+    
 }
