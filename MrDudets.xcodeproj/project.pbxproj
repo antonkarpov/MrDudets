@@ -15,6 +15,7 @@
 		8DBEE8A01DA8CCF100413084 /* MDMusicStudioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBEE89F1DA8CCF100413084 /* MDMusicStudioCell.swift */; };
 		8DBEE8A21DA8DA0400413084 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBEE8A11DA8DA0400413084 /* UIColor+Hex.swift */; };
 		8DBEE8A71DA8EE3500413084 /* MDMainSoundStudio+FlowLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBEE8A61DA8EE3500413084 /* MDMainSoundStudio+FlowLayoutDelegate.swift */; };
+		8DBEE8A91DA8FBD700413084 /* MDDurationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBEE8A81DA8FBD700413084 /* MDDurationLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		8DBEE89F1DA8CCF100413084 /* MDMusicStudioCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDMusicStudioCell.swift; sourceTree = "<group>"; };
 		8DBEE8A11DA8DA0400413084 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		8DBEE8A61DA8EE3500413084 /* MDMainSoundStudio+FlowLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MDMainSoundStudio+FlowLayoutDelegate.swift"; sourceTree = "<group>"; };
+		8DBEE8A81DA8FBD700413084 /* MDDurationLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDDurationLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				8DBEE89E1DA8CCB400413084 /* MDCollectionView */,
 				8DBEE89D1DA8CC7200413084 /* Main Sound Studio Screen */,
 				60862A4F1DA425CA008B2CA5 /* Main.storyboard */,
+				8DBEE8A81DA8FBD700413084 /* MDDurationLabel.swift */,
 			);
 			path = MrDudets;
 			sourceTree = "<group>";
@@ -71,6 +74,7 @@
 		8DBEE89D1DA8CC7200413084 /* Main Sound Studio Screen */ = {
 			isa = PBXGroup;
 			children = (
+				8DBEE8A61DA8EE3500413084 /* MDMainSoundStudio+FlowLayoutDelegate.swift */,
 				8DBEE89B1DA8CA4400413084 /* MDMainSoundStudioViewController.swift */,
 			);
 			name = "Main Sound Studio Screen";
@@ -81,7 +85,6 @@
 			children = (
 				8DBEE89F1DA8CCF100413084 /* MDMusicStudioCell.swift */,
 				8DBEE8A11DA8DA0400413084 /* UIColor+Hex.swift */,
-				8DBEE8A61DA8EE3500413084 /* MDMainSoundStudio+FlowLayoutDelegate.swift */,
 			);
 			name = MDCollectionView;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DBEE89C1DA8CA4400413084 /* MDMainSoundStudioViewController.swift in Sources */,
+				8DBEE8A91DA8FBD700413084 /* MDDurationLabel.swift in Sources */,
 				8DBEE8A21DA8DA0400413084 /* UIColor+Hex.swift in Sources */,
 				60862A4C1DA425CA008B2CA5 /* AppDelegate.swift in Sources */,
 				8DBEE8A71DA8EE3500413084 /* MDMainSoundStudio+FlowLayoutDelegate.swift in Sources */,

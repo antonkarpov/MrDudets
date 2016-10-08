@@ -8,7 +8,37 @@
 
 import UIKit
 
+enum MDSoundRecordingState {
+    case MDSoundRecordingActive
+    case MDSoundRecoringInactive
+}
+
+enum MDSoundPlayingState {
+    case MDSoundPlayingReadyToPlay
+    case MDSoundPlayingNotReadyToPlay
+    case MDSoundPlayingActive
+}
+
+enum MDSoundLoopState {
+    case MDSoundLoopReadyToLoop
+    case MDSoundLoopNotReadyToLoop
+    case MDSoundLoopActive
+}
+
+enum MDMusicCellState {
+    case MDMusicCellStateActive
+    case MDMusicCellStateInactive
+}
+
 class MDMusicStudioCell: UICollectionViewCell {
+    
+    // MARK: - Variables & outlets
+    
+    @IBOutlet var recordButton: UIButton!
+    @IBOutlet var playButton: UIButton!
+    @IBOutlet var loopButton: UIButton!
+    @IBOutlet var recordingLabel: UILabel!
+    @IBOutlet var durationLabel: MDDurationLabel!
     
     let redColorHex =        "#EB5757"
     let orangeColorHex =     "#F2994A"
@@ -19,8 +49,11 @@ class MDMusicStudioCell: UICollectionViewCell {
     let silverTreeColorHex = "#6FCF97"
     let eucaliptusColorHex = "#27AE60"
     
+    // MARK: - Cell configuration
+    
     func configurateCell(indexPath: NSIndexPath) {
         self.backgroundColor = self.cellColor(indexPath.row)
+        self.recordingLabel.hidden = true
     }
     
     func cellColor(indexPathRow: Int) -> UIColor {
@@ -34,5 +67,47 @@ class MDMusicStudioCell: UICollectionViewCell {
                                 7: eucaliptusColorHex]
         
         return UIColor.init(hexString: colorsDictionary[indexPathRow]!)
+    }
+    
+    //MARK: - Cell states
+    
+    func updateRecordButton(state: MDSoundRecordingState) {
+        switch state {
+        case .MDSoundRecordingActive:
+            recordingLabel.hidden = false
+            playButton.hidden = true
+            loopButton.hidden = true
+            durationLabel.startTimer()
+            break
+            
+        case .MDSoundRecoringInactive:
+            recordingLabel.hidden = true
+            playButton.hidden = false
+            loopButton.hidden = false
+            durationLabel.stopTimer()
+            break
+        }
+
+    }
+    
+    func updatePlayButton(state: MDSoundPlayingState) {
+        switch state {
+        case .MDSoundPlayingReadyToPlay:
+            playButton.hidden = false
+            playButton.setImage(UIImage.init(named: "play_button_active"), forState: UIControlState.Normal)
+            break
+        
+        case .MDSoundPlayingNotReadyToPlay:
+            playButton.hidden = false
+            playButton.setImage(UIImage.init(named: "play_button_inactive"), forState: UIControlState.Normal)
+            
+        case .MDSoundPlayingActive:
+            recordingLabel.hidden = false
+            recordButton.hidden = true
+            loopButton.hidden = false
+            playButton.setImage(UIImage.init(named: "stop_button"), forState: UIControlState.Normal)
+            durationLabel.startTimer()
+            break
+        }
     }
 }
