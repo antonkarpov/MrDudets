@@ -42,7 +42,7 @@ class MDPianoSound: NSObject {
         let octaveString = self.stringValueForOctave(self.octave)
         let soundName = noteString.stringByAppendingString(octaveString)
         
-        let url = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource(soundName, ofType: "mp3")!)
+        let url = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource(soundName, ofType: "mp3", inDirectory: "Piano Sounds")!)
         
         return url
     }

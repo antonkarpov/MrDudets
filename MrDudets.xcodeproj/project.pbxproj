@@ -75,6 +75,7 @@
 		60862A3F1DA425CA008B2CA5 = {
 			isa = PBXGroup;
 			children = (
+				8DBEE8AB1DAA4A6000413084 /* Piano Sounds */,
 				8DBEE8AA1DAA4A4F00413084 /* Resources */,
 				60862A4A1DA425CA008B2CA5 /* MrDudets */,
 				60862A491DA425CA008B2CA5 /* Products */,
@@ -136,7 +137,6 @@
 		8DBEE8AA1DAA4A4F00413084 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8DBEE8AB1DAA4A6000413084 /* Piano Sounds */,
 			);
 			name = Resources;
 			sourceTree = "<group>";

@@ -141,10 +141,10 @@
             </objects>
             <point key="canvasLocation" x="562" y="318"/>
         </scene>
-        <!--View Controller-->
+        <!--Piano Keyboard View Controller-->
         <scene sceneID="cUF-Xi-f5k">
             <objects>
-                <viewController id="90H-hO-D04" sceneMemberID="viewController">
+                <viewController id="90H-hO-D04" customClass="MDPianoKeyboardViewController" customModule="MrDudets" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="B3c-Nd-QKO"/>
                         <viewControllerLayoutGuide type="bottom" id="4xz-au-95E"/>
@@ -153,12 +153,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="1800" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Med-xr-5YN" userLabel="C">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Med-xr-5YN" userLabel="C" customClass="UIButton">
                                 <rect key="frame" x="0.0" y="0.0" width="100" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="xCY-7x-0tr"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="sdf:" destination="90H-hO-D04" eventType="touchUpInside" id="FhG-oz-FYe"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pMt-UZ-inX" userLabel="D">
                                 <rect key="frame" x="101" y="0.0" width="100" height="200"/>
