@@ -19,6 +19,7 @@
 		8DBEE8A21DA8DA0400413084 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBEE8A11DA8DA0400413084 /* UIColor+Hex.swift */; };
 		8DBEE8A71DA8EE3500413084 /* MDMainSoundStudio+FlowLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBEE8A61DA8EE3500413084 /* MDMainSoundStudio+FlowLayoutDelegate.swift */; };
 		8DBEE8A91DA8FBD700413084 /* MDDurationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBEE8A81DA8FBD700413084 /* MDDurationLabel.swift */; };
+		8DBEE8AC1DAA4A6000413084 /* Piano Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 8DBEE8AB1DAA4A6000413084 /* Piano Sounds */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		8DBEE8A11DA8DA0400413084 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		8DBEE8A61DA8EE3500413084 /* MDMainSoundStudio+FlowLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MDMainSoundStudio+FlowLayoutDelegate.swift"; sourceTree = "<group>"; };
 		8DBEE8A81DA8FBD700413084 /* MDDurationLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDDurationLabel.swift; sourceTree = "<group>"; };
+		8DBEE8AB1DAA4A6000413084 /* Piano Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Piano Sounds"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 		60862A3F1DA425CA008B2CA5 = {
 			isa = PBXGroup;
 			children = (
+				8DBEE8AA1DAA4A4F00413084 /* Resources */,
 				60862A4A1DA425CA008B2CA5 /* MrDudets */,
 				60862A491DA425CA008B2CA5 /* Products */,
 			);
@@ -123,6 +126,14 @@
 				60862A4B1DA425CA008B2CA5 /* AppDelegate.swift */,
 			);
 			name = "Support Files";
+			sourceTree = "<group>";
+		};
+		8DBEE8AA1DAA4A4F00413084 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8DBEE8AB1DAA4A6000413084 /* Piano Sounds */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +197,7 @@
 				60862A561DA425CA008B2CA5 /* LaunchScreen.storyboard in Resources */,
 				60862A531DA425CA008B2CA5 /* Assets.xcassets in Resources */,
 				60862A511DA425CA008B2CA5 /* Main.storyboard in Resources */,
+				8DBEE8AC1DAA4A6000413084 /* Piano Sounds in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
