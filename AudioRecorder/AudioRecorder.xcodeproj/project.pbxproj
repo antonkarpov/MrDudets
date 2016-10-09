@@ -14,6 +14,7 @@
 		601A341F1DA8D7CD00016A97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 601A341D1DA8D7CD00016A97 /* LaunchScreen.storyboard */; };
 		601A34271DA8F01E00016A97 /* NSFileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601A34261DA8F01E00016A97 /* NSFileManagerExtension.swift */; };
 		601A34291DA90FE700016A97 /* MDAudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601A34281DA90FE700016A97 /* MDAudioRecorder.swift */; };
+		601A342B1DAA1EB100016A97 /* MDAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601A342A1DAA1EB100016A97 /* MDAudioPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		601A34201DA8D7CD00016A97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		601A34261DA8F01E00016A97 /* NSFileManagerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSFileManagerExtension.swift; sourceTree = "<group>"; };
 		601A34281DA90FE700016A97 /* MDAudioRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDAudioRecorder.swift; sourceTree = "<group>"; };
+		601A342A1DAA1EB100016A97 /* MDAudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDAudioPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				601A34141DA8D7CD00016A97 /* AppDelegate.swift */,
 				601A34261DA8F01E00016A97 /* NSFileManagerExtension.swift */,
 				601A34281DA90FE700016A97 /* MDAudioRecorder.swift */,
+				601A342A1DAA1EB100016A97 /* MDAudioPlayer.swift */,
 				601A34161DA8D7CD00016A97 /* ViewController.swift */,
 				601A34181DA8D7CD00016A97 /* Main.storyboard */,
 				601A341B1DA8D7CD00016A97 /* Assets.xcassets */,
@@ -145,6 +148,7 @@
 				601A34291DA90FE700016A97 /* MDAudioRecorder.swift in Sources */,
 				601A34151DA8D7CD00016A97 /* AppDelegate.swift in Sources */,
 				601A34271DA8F01E00016A97 /* NSFileManagerExtension.swift in Sources */,
+				601A342B1DAA1EB100016A97 /* MDAudioPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +300,7 @@
 				601A34251DA8D7CD00016A97 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

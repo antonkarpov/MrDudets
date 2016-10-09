@@ -26,9 +26,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var playButton1: UIButton!
     
     
-    var players: [AVAudioPlayer]!
+    var players: [MDAudioPlayer]!
     
-    var player: AVAudioPlayer!
+    var player: MDAudioPlayer!
     
     var recorder: MDAudioRecorder!
 
@@ -36,36 +36,52 @@ class ViewController: UIViewController {
     
     var recordURLs: [NSURL]!
     
+    deinit {
+        let session = AVAudioSession.sharedInstance()
+        
+        do {
+            try session.setActive(false)
+        } catch let error as NSError {
+            print("could not make session inactive")
+            print(error.localizedDescription)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.players = []
         self.recordURLs = NSFileManager.generateURLsForRecords(2)
-        setSessionPlayback()
+        
+        requestPermissions()
     }
     
-    
-    
-    func setSessionPlayback() {
+    func requestPermissions() {
         let session:AVAudioSession = AVAudioSession.sharedInstance()
         
-        do {
-            try session.setCategory(AVAudioSessionCategoryPlayback)
-        } catch let error as NSError {
-            
-            print("could not set session category")
-            print(error.localizedDescription)
-        }
-        do {
-            try session.setActive(true)
-        } catch let error as NSError {
-            print("could not make session active")
-            print(error.localizedDescription)
+        // ios 8 and later
+        
+        if (session.respondsToSelector(#selector(AVAudioSession.requestRecordPermission(_:)))) {
+            AVAudioSession.sharedInstance().requestRecordPermission({(granted: Bool)-> Void in
+                if granted {
+                    
+                    print("Permission to record granted")
+                    
+                    self.setSessionPlayAndRecord()
+                    
+                } else {
+                    print("Permission to record not granted")
+                }
+            })
+        } else {
+            print("requestRecordPermission unrecognized")
         }
     }
     
     func setSessionPlayAndRecord() {
+        
         let session = AVAudioSession.sharedInstance()
+        
         do {
             try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
         } catch let error as NSError {
@@ -73,6 +89,7 @@ class ViewController: UIViewController {
             print("could not set session category")
             print(error.localizedDescription)
         }
+        
         do {
             try session.setActive(true)
         } catch let error as NSError {
@@ -80,6 +97,7 @@ class ViewController: UIViewController {
             print("could not make session active")
             print(error.localizedDescription)
         }
+        
     }
     
     func setupRecorder(url: NSURL) {
@@ -94,41 +112,21 @@ class ViewController: UIViewController {
     }
     
     func recordWithPermission(setup: Bool, forSender sender: UIButton) {
-        let session:AVAudioSession = AVAudioSession.sharedInstance()
         
-        // ios 8 and later
-        
-        if (session.respondsToSelector(#selector(AVAudioSession.requestRecordPermission(_:)))) {
-            AVAudioSession.sharedInstance().requestRecordPermission({(granted: Bool)-> Void in
-                if granted {
-                    
-                    print("Permission to record granted")
-                    
-                    self.setSessionPlayAndRecord()
-                    
-                    if setup {
-                        //self.setupRecorder()
-                        
-                        var url = self.recordURLs.first
-                        if sender == self.recordButton1 {
-                            url = self.recordURLs.last
-                        }
-                        
-                        self.setupRecorder(url!)
-                    }
-                    
-                    self.recorder.recordWithTimer(
-                        timeInterval: 0.1,
-                        target: self,
-                        selector: #selector(ViewController.updateAudioRecorderMeter(_:)))
-                    
-                } else {
-                    print("Permission to record not granted")
-                }
-            })
-        } else {
-            print("requestRecordPermission unrecognized")
+        if setup {
+            
+            var url = self.recordURLs.first
+            if sender == self.recordButton1 {
+                url = self.recordURLs.last
+            }
+            
+            self.setupRecorder(url!)
         }
+        
+        self.recorder.recordWithTimer(
+            timeInterval: 0.1,
+            target: self,
+            selector: #selector(ViewController.updateAudioRecorderMeter(_:)))
         
     }
     
@@ -137,18 +135,15 @@ class ViewController: UIViewController {
         
         do {
             
-            let player_ = try AVAudioPlayer(contentsOfURL: url)
-            
-            stopButton.enabled = true
-            stopButton1.enabled = true
-            
-            player_.delegate = self
-            //player_.numberOfLoops = -1
-            player_.prepareToPlay()
-            player_.volume = 1.0
+            let player_ = try MDAudioPlayer(URL: url, avDelegate: self)
             player_.play()
             
             players.append(player_)
+            
+            player_.loopAudio(true)
+            
+            stopButton.enabled = true
+            stopButton1.enabled = true
             
         } catch let error as NSError {
             //self.player = nil
@@ -189,10 +184,6 @@ class ViewController: UIViewController {
             players.last?.stop()
         }
         
-        //player?.stop()
-        
-        //meterTimer.invalidate()
-        
         recordButton.setTitle("Record", forState: UIControlState())
         recordButton1.setTitle("Record", forState: UIControlState())
         
@@ -206,24 +197,9 @@ class ViewController: UIViewController {
         
         recordButton.enabled = true
         recordButton1.enabled = true
-        
-        
-//        let session = AVAudioSession.sharedInstance()
-//        
-//        do {
-//            try session.setActive(false)
-//            
-//            playButton.enabled = true
-//            stopButton.enabled = false
-//            recordButton.enabled = true
-//        } catch let error as NSError {
-//            print("could not make session inactive")
-//            print(error.localizedDescription)
-//        }
     }
     
     @IBAction func playButtonTapped(sender: UIButton) {
-        setSessionPlayback()
         
         var url = self.recordURLs.first
         if sender == self.playButton1 {
