@@ -20,6 +20,8 @@
 		8DBEE8A71DA8EE3500413084 /* MDMainSoundStudio+FlowLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBEE8A61DA8EE3500413084 /* MDMainSoundStudio+FlowLayoutDelegate.swift */; };
 		8DBEE8A91DA8FBD700413084 /* MDDurationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBEE8A81DA8FBD700413084 /* MDDurationLabel.swift */; };
 		8DBEE8AC1DAA4A6000413084 /* Piano Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 8DBEE8AB1DAA4A6000413084 /* Piano Sounds */; };
+		8DBEE8AF1DAA4AD900413084 /* MDPianoKeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBEE8AE1DAA4AD900413084 /* MDPianoKeyboardViewController.swift */; };
+		8DBEE8B11DAA4B1400413084 /* MDPianoSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBEE8B01DAA4B1400413084 /* MDPianoSound.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		8DBEE8A61DA8EE3500413084 /* MDMainSoundStudio+FlowLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MDMainSoundStudio+FlowLayoutDelegate.swift"; sourceTree = "<group>"; };
 		8DBEE8A81DA8FBD700413084 /* MDDurationLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDDurationLabel.swift; sourceTree = "<group>"; };
 		8DBEE8AB1DAA4A6000413084 /* Piano Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Piano Sounds"; sourceTree = "<group>"; };
+		8DBEE8AE1DAA4AD900413084 /* MDPianoKeyboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDPianoKeyboardViewController.swift; sourceTree = "<group>"; };
+		8DBEE8B01DAA4B1400413084 /* MDPianoSound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDPianoSound.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,7 @@
 		60862A4A1DA425CA008B2CA5 /* MrDudets */ = {
 			isa = PBXGroup;
 			children = (
+				8DBEE8AD1DAA4A9E00413084 /* Piano keyboard */,
 				601A34331DAA295000016A97 /* Recorder and Player */,
 				601A342C1DAA28FD00016A97 /* NSFileManagerExtensions */,
 				8DBEE8A51DA8DFB300413084 /* Support Files */,
@@ -134,6 +139,15 @@
 				8DBEE8AB1DAA4A6000413084 /* Piano Sounds */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		8DBEE8AD1DAA4A9E00413084 /* Piano keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				8DBEE8AE1DAA4AD900413084 /* MDPianoKeyboardViewController.swift */,
+				8DBEE8B01DAA4B1400413084 /* MDPianoSound.swift */,
+			);
+			name = "Piano keyboard";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,11 +226,13 @@
 				601A34311DAA293E00016A97 /* MDAudioRecorder.swift in Sources */,
 				8DBEE89C1DA8CA4400413084 /* MDMainSoundStudioViewController.swift in Sources */,
 				8DBEE8A91DA8FBD700413084 /* MDDurationLabel.swift in Sources */,
+				8DBEE8AF1DAA4AD900413084 /* MDPianoKeyboardViewController.swift in Sources */,
 				8DBEE8A21DA8DA0400413084 /* UIColor+Hex.swift in Sources */,
 				601A34321DAA293E00016A97 /* NSFileManagerExtension.swift in Sources */,
 				60862A4C1DA425CA008B2CA5 /* AppDelegate.swift in Sources */,
 				8DBEE8A71DA8EE3500413084 /* MDMainSoundStudio+FlowLayoutDelegate.swift in Sources */,
 				8DBEE8A01DA8CCF100413084 /* MDMusicStudioCell.swift in Sources */,
+				8DBEE8B11DAA4B1400413084 /* MDPianoSound.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
