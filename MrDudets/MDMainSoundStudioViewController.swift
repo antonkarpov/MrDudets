@@ -182,7 +182,7 @@ class MDMainSoundStudioViewController: UIViewController, UICollectionViewDelegat
     }
 
     
-    func play(sender: UIButton, loopAudio: Bool) {
+    func play(sender: UIButton, loopAudio: Bool) -> Bool {
         
         let cell = sender.superview?.superview
         let musicCell = cell as! MDMusicStudioCell
@@ -191,7 +191,7 @@ class MDMainSoundStudioViewController: UIViewController, UICollectionViewDelegat
         let url = dataSource[index!][MDCellData.URL] as! NSURL
         
         if !NSFileManager.defaultManager().fileExistsAtPath(url.path!) {
-            return
+            return false
         }
         
         print("playing \(url)")
@@ -203,9 +203,13 @@ class MDMainSoundStudioViewController: UIViewController, UICollectionViewDelegat
             player.loopAudio(loopAudio)
             player.play()
             
+            return true
+            
         } catch let error as NSError {
             //self.player = nil
             print(error.localizedDescription)
+            
+            return false
         }
     }
     
@@ -222,9 +226,11 @@ class MDMainSoundStudioViewController: UIViewController, UICollectionViewDelegat
                 
                 musicCell.updateCellState(MDCellState.Default)
             } else {
-                play(sender, loopAudio: false)
+                if play(sender, loopAudio: false) {
                 
-                musicCell.updateCellState(MDCellState.Playing)
+                    musicCell.updateCellState(MDCellState.Playing)
+                    
+                }
             }
             
         }
@@ -241,9 +247,11 @@ class MDMainSoundStudioViewController: UIViewController, UICollectionViewDelegat
             
             
             if musicCell.cellState == MDCellState.Default {
-                play(sender, loopAudio: true)
+                if play(sender, loopAudio: true) {
                 
-                musicCell.updateCellState(MDCellState.Looping)
+                    musicCell.updateCellState(MDCellState.Looping)
+                    
+                }
             } else if musicCell.cellState == MDCellState.Playing {
                 player?.loopAudio(true)
                 
