@@ -35,34 +35,46 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WRx-OR-GNE" userLabel="record">
-                                                    <rect key="frame" x="15" y="20" width="34" height="34"/>
+                                                    <rect key="frame" x="15" y="20" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="7V2-Bh-amI"/>
+                                                        <constraint firstAttribute="width" constant="50" id="s6v-Ir-z1e"/>
+                                                    </constraints>
                                                     <state key="normal" image="record_button"/>
                                                     <connections>
                                                         <action selector="recordButtonAction:" destination="gUe-gp-sgp" eventType="touchUpInside" id="jHx-0L-lTu"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KOH-F5-Ynh" userLabel="play">
-                                                    <rect key="frame" x="15" y="86" width="27" height="30"/>
+                                                    <rect key="frame" x="15" y="76" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="Zkb-fQ-OLx"/>
+                                                        <constraint firstAttribute="width" constant="50" id="xTe-eM-qZw"/>
+                                                    </constraints>
                                                     <state key="normal" image="play_button_active"/>
                                                     <connections>
                                                         <action selector="playButtonAction:" destination="gUe-gp-sgp" eventType="touchUpInside" id="y9P-tR-mFB"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="250-vd-5c1" userLabel="loop">
-                                                    <rect key="frame" x="15" y="145" width="34" height="36"/>
+                                                    <rect key="frame" x="15" y="131" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="ClL-By-bnU"/>
+                                                        <constraint firstAttribute="width" constant="50" id="qG1-K5-SFp"/>
+                                                    </constraints>
                                                     <state key="normal" image="loop_button_active_off"/>
                                                     <connections>
                                                         <action selector="loopButtonAction:" destination="gUe-gp-sgp" eventType="touchUpInside" id="JHk-RI-uaY"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgs-9u-Ys0">
-                                                    <rect key="frame" x="76" y="25" width="111" height="24"/>
+                                                    <rect key="frame" x="101" y="33" width="111" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2Q-ad-Z3A" customClass="MDDurationLabel" customModule="MrDudets" customModuleProvider="target">
-                                                    <rect key="frame" x="103" y="89" width="57" height="24"/>
+                                                    <rect key="frame" x="128" y="89" width="57" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -77,8 +89,8 @@
                                             <constraint firstItem="WRx-OR-GNE" firstAttribute="leading" secondItem="Avj-BH-kD8" secondAttribute="leading" constant="15" id="P6n-7t-tqH"/>
                                             <constraint firstItem="KOH-F5-Ynh" firstAttribute="leading" secondItem="Avj-BH-kD8" secondAttribute="leading" constant="15" id="QcK-z0-KH3"/>
                                             <constraint firstItem="B2Q-ad-Z3A" firstAttribute="centerY" secondItem="KOH-F5-Ynh" secondAttribute="centerY" id="RWN-9f-lew"/>
-                                            <constraint firstItem="vgs-9u-Ys0" firstAttribute="centerX" secondItem="Avj-BH-kD8" secondAttribute="centerX" id="YL0-1b-v5p"/>
-                                            <constraint firstItem="B2Q-ad-Z3A" firstAttribute="centerX" secondItem="Avj-BH-kD8" secondAttribute="centerX" id="Ydm-e9-rrM"/>
+                                            <constraint firstItem="vgs-9u-Ys0" firstAttribute="centerX" secondItem="Avj-BH-kD8" secondAttribute="centerX" constant="25" id="YL0-1b-v5p"/>
+                                            <constraint firstItem="B2Q-ad-Z3A" firstAttribute="centerX" secondItem="Avj-BH-kD8" secondAttribute="centerX" constant="25" id="Ydm-e9-rrM"/>
                                             <constraint firstAttribute="bottom" secondItem="250-vd-5c1" secondAttribute="bottom" constant="20" id="aLV-VV-eX9"/>
                                             <constraint firstItem="WRx-OR-GNE" firstAttribute="top" secondItem="Avj-BH-kD8" secondAttribute="top" constant="20" id="b2I-fA-WnZ"/>
                                             <constraint firstItem="250-vd-5c1" firstAttribute="leading" secondItem="Avj-BH-kD8" secondAttribute="leading" constant="15" id="l2o-6Z-c7G"/>
@@ -149,8 +161,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="loop_button_active_off" width="34" height="36"/>
-        <image name="play_button_active" width="27" height="30"/>
-        <image name="record_button" width="34" height="34"/>
+        <image name="loop_button_active_off" width="148" height="144"/>
+        <image name="play_button_active" width="108" height="120"/>
+        <image name="record_button" width="136" height="136"/>
     </resources>
 </document>
