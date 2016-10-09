@@ -42,9 +42,19 @@ class MDMainSoundStudioViewController: UIViewController, UICollectionViewDelegat
         return cell
     }
     
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let haveSoundForCell = true // Check if recorded sound already exist
+        let musicCell = collectionView.cellForItemAtIndexPath(indexPath) as! MDMusicStudioCell
+        if haveSoundForCell {
+            loopButtonAction(musicCell.loopButton)
+        }
+    }
+    
     // MARK: - Actions
     
     @IBAction func recordButtonAction(sender: UIButton) {
+        // model code here
+        
         let isRecording = true // Put the recorder state here
         
         if let cell = sender.superview?.superview {
@@ -55,6 +65,8 @@ class MDMainSoundStudioViewController: UIViewController, UICollectionViewDelegat
     }
 
     @IBAction func playButtonAction(sender: UIButton) {
+        // model code here
+        
         let haveSoundForCell = true // Check if recorded sound already exist
         let isPlaying = true // Put the player state here
         
@@ -70,7 +82,23 @@ class MDMainSoundStudioViewController: UIViewController, UICollectionViewDelegat
         
     }
 
-    @IBAction func loopButtonAction(sender: UIButton) {  
+    @IBAction func loopButtonAction(sender: UIButton) {
+        // model code here
+        
+        let haveSoundForCell = true // Check if recorded sound already exist
+        let isPlaying = true // Put the player state here
+        
+        if let cell = sender.superview?.superview {
+            let musicalCell = cell as! MDMusicStudioCell
+            
+            if isPlaying {
+                musicalCell.updateLoopButton(MDSoundLoopState.MDSoundLoopActive)
+            } else {
+                musicalCell.updateLoopButton(haveSoundForCell ? MDSoundLoopState.MDSoundLoopReadyToLoop : MDSoundLoopState.MDSoundLoopNotReadyToLoop)
+            }
+        }
     }
     
 }
+
+
