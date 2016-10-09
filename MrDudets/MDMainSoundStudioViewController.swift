@@ -172,7 +172,7 @@ class MDMainSoundStudioViewController: UIViewController, UICollectionViewDelegat
         
         if let cell = sender.superview?.superview {
             
-            if recorder.recording {
+            if recorder != nil && recorder.recording {
                 recorder.stop()
             } else {
                 setupRecorder(sender)
@@ -184,37 +184,85 @@ class MDMainSoundStudioViewController: UIViewController, UICollectionViewDelegat
         
     }
 
-    @IBAction func playButtonAction(sender: UIButton) {
-        // model code here
+    
+    func play(sender: UIButton, loopAudio: Bool) {
         
-        let haveSoundForCell = true // Check if recorded sound already exist
-        let isPlaying = true // Put the player state here
+        let cell = sender.superview?.superview
+        let musicCell = cell as! MDMusicStudioCell
+        
+        let index = collectionView.indexPathForCell(musicCell)?.row
+        let url = dataSource[index!][MDCellData.URL] as! NSURL
+        
+        if !NSFileManager.defaultManager().fileExistsAtPath(url.path!) {
+            return
+        }
+        
+        print("playing \(url)")
+        
+        do {
+            
+            let player = try MDAudioPlayer(URL: url, avDelegate: self)
+            dataSource[index!][MDCellData.Player] = player
+            player.loopAudio(loopAudio)
+            player.play()
+            
+        } catch let error as NSError {
+            //self.player = nil
+            print(error.localizedDescription)
+        }
+    }
+    
+    @IBAction func playButtonAction(sender: UIButton) {
         
         if let cell = sender.superview?.superview {
-            let musicCell = cell as! MDMusicStudioCell
             
-            if isPlaying {
-                musicCell.updatePlayButton(MDSoundPlayingState.MDSoundPlayingActive)
+            let musicCell = cell as! MDMusicStudioCell
+            let index = collectionView.indexPathForCell(musicCell)?.row
+            let player = dataSource[index!][MDCellData.Player] as! MDAudioPlayer?
+            
+            if player != nil && player!.playing {
+                player!.stop()
             } else {
-                musicCell.updatePlayButton(haveSoundForCell ? MDSoundPlayingState.MDSoundPlayingReadyToPlay : MDSoundPlayingState.MDSoundPlayingNotReadyToPlay)
+                play(sender, loopAudio: false)
+            }
+            
+            if player != nil {
+                if player!.playing {
+                    musicCell.updatePlayButton(MDSoundPlayingState.MDSoundPlayingActive)
+                } else {
+                    let url = dataSource[index!][MDCellData.URL] as! NSURL
+                    let haveSoundForCell = NSFileManager.defaultManager().fileExistsAtPath(url.absoluteString)
+                    
+                    musicCell.updatePlayButton(haveSoundForCell ? MDSoundPlayingState.MDSoundPlayingReadyToPlay : MDSoundPlayingState.MDSoundPlayingNotReadyToPlay)
+                }
             }
         }
         
     }
 
     @IBAction func loopButtonAction(sender: UIButton) {
-        // model code here
-        
-        let haveSoundForCell = true // Check if recorded sound already exist
-        let isPlaying = true // Put the player state here
         
         if let cell = sender.superview?.superview {
-            let musicalCell = cell as! MDMusicStudioCell
             
-            if isPlaying {
-                musicalCell.updateLoopButton(MDSoundLoopState.MDSoundLoopActive)
+            let musicCell = cell as! MDMusicStudioCell
+            let index = collectionView.indexPathForCell(musicCell)?.row
+            let player = dataSource[index!][MDCellData.Player] as! MDAudioPlayer?
+            
+            if player != nil && player!.playing {
+                player!.stop()
             } else {
-                musicalCell.updateLoopButton(haveSoundForCell ? MDSoundLoopState.MDSoundLoopReadyToLoop : MDSoundLoopState.MDSoundLoopNotReadyToLoop)
+                play(sender, loopAudio: true)
+            }
+            
+            if player != nil {
+                if player!.playing {
+                    musicCell.updateLoopButton(MDSoundLoopState.MDSoundLoopActive)
+                } else {
+                    let url = dataSource[index!][MDCellData.URL] as! NSURL
+                    let haveSoundForCell = NSFileManager.defaultManager().fileExistsAtPath(url.absoluteString)
+                    
+                    musicCell.updateLoopButton(haveSoundForCell ? MDSoundLoopState.MDSoundLoopReadyToLoop : MDSoundLoopState.MDSoundLoopNotReadyToLoop)
+                }
             }
         }
     }
