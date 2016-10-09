@@ -58,6 +58,7 @@ class MDAudioRecorder {
     
     func stop() {
         avRecorder.stop()
+        recordTimer.invalidate()
     }
     
     func deleteRecording() -> Bool {
