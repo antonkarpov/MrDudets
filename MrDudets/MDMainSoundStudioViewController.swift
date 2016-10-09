@@ -18,9 +18,6 @@ class MDMainSoundStudioViewController: UIViewController, UICollectionViewDelegat
     
     // MARK: - Variables
     
-    var recordingState = MDSoundRecordingState.MDSoundRecoringInactive
-    var playingState = MDSoundPlayingState.MDSoundPlayingNotReadyToPlay
-    
     var dataSource: [ [MDCellData: AnyObject?] ]!
     
     var recorder: MDAudioRecorder!
@@ -111,6 +108,7 @@ class MDMainSoundStudioViewController: UIViewController, UICollectionViewDelegat
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MusicalCell", forIndexPath: indexPath) as! MDMusicStudioCell
+        
         cell.configurateCell(indexPath)
         
         return cell
@@ -118,11 +116,8 @@ class MDMainSoundStudioViewController: UIViewController, UICollectionViewDelegat
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        let haveSoundForCell = true // Check if recorded sound already exist
         let musicCell = collectionView.cellForItemAtIndexPath(indexPath) as! MDMusicStudioCell
-        if haveSoundForCell {
-            loopButtonAction(musicCell.loopButton)
-        }
+        loopButtonAction(musicCell.loopButton)
     }
     
     // MARK: Recorder Timer Updates
@@ -133,7 +128,7 @@ class MDMainSoundStudioViewController: UIViewController, UICollectionViewDelegat
         if avRecorder.recording {
             let min = Int(avRecorder.currentTime / 60)
             let sec = Int(avRecorder.currentTime / 60)
-            let s = String(format: "%02d:%02d", min, sec)
+            _ = String(format: "%02d:%02d", min, sec)
             //statusLabel.text = s
             avRecorder.updateMeters()
             
@@ -172,50 +167,101 @@ class MDMainSoundStudioViewController: UIViewController, UICollectionViewDelegat
         
         if let cell = sender.superview?.superview {
             
-            if recorder.recording {
+            let musicCell = cell as! MDMusicStudioCell
+            
+            if recorder != nil && recorder.recording {
                 recorder.stop()
+                musicCell.updateCellState(MDCellState.Default)
             } else {
                 setupRecorder(sender)
+                musicCell.updateCellState(MDCellState.Recording)
             }
             
-            let musicCell = cell as! MDMusicStudioCell
-            musicCell.updateRecordButton(recorder.recording ? MDSoundRecordingState.MDSoundRecordingActive : MDSoundRecordingState.MDSoundRecoringInactive)
         }
         
     }
 
-    @IBAction func playButtonAction(sender: UIButton) {
-        // model code here
+    
+    func play(sender: UIButton, loopAudio: Bool) -> Bool {
         
-        let haveSoundForCell = true // Check if recorded sound already exist
-        let isPlaying = true // Put the player state here
+        let cell = sender.superview?.superview
+        let musicCell = cell as! MDMusicStudioCell
+        
+        let index = collectionView.indexPathForCell(musicCell)?.row
+        let url = dataSource[index!][MDCellData.URL] as! NSURL
+        
+        if !NSFileManager.defaultManager().fileExistsAtPath(url.path!) {
+            return false
+        }
+        
+        print("playing \(url)")
+        
+        do {
+            
+            let player = try MDAudioPlayer(URL: url, avDelegate: self)
+            dataSource[index!][MDCellData.Player] = player
+            player.loopAudio(loopAudio)
+            player.play()
+            
+            return true
+            
+        } catch let error as NSError {
+            //self.player = nil
+            print(error.localizedDescription)
+            
+            return false
+        }
+    }
+    
+    @IBAction func playButtonAction(sender: UIButton) {
         
         if let cell = sender.superview?.superview {
-            let musicCell = cell as! MDMusicStudioCell
             
-            if isPlaying {
-                musicCell.updatePlayButton(MDSoundPlayingState.MDSoundPlayingActive)
+            let musicCell = cell as! MDMusicStudioCell
+            let index = collectionView.indexPathForCell(musicCell)?.row
+            let player = dataSource[index!][MDCellData.Player] as! MDAudioPlayer?
+            
+            if player != nil && player!.playing {
+                player!.stop()
+                
+                musicCell.updateCellState(MDCellState.Default)
             } else {
-                musicCell.updatePlayButton(haveSoundForCell ? MDSoundPlayingState.MDSoundPlayingReadyToPlay : MDSoundPlayingState.MDSoundPlayingNotReadyToPlay)
+                if play(sender, loopAudio: false) {
+                
+                    musicCell.updateCellState(MDCellState.Playing)
+                    
+                }
             }
+            
         }
         
     }
 
     @IBAction func loopButtonAction(sender: UIButton) {
-        // model code here
-        
-        let haveSoundForCell = true // Check if recorded sound already exist
-        let isPlaying = true // Put the player state here
         
         if let cell = sender.superview?.superview {
-            let musicalCell = cell as! MDMusicStudioCell
             
-            if isPlaying {
-                musicalCell.updateLoopButton(MDSoundLoopState.MDSoundLoopActive)
-            } else {
-                musicalCell.updateLoopButton(haveSoundForCell ? MDSoundLoopState.MDSoundLoopReadyToLoop : MDSoundLoopState.MDSoundLoopNotReadyToLoop)
+            let musicCell = cell as! MDMusicStudioCell
+            let index = collectionView.indexPathForCell(musicCell)?.row
+            let player = dataSource[index!][MDCellData.Player] as! MDAudioPlayer?
+            
+            
+            if musicCell.cellState == MDCellState.Default {
+                if play(sender, loopAudio: true) {
+                
+                    musicCell.updateCellState(MDCellState.Looping)
+                    
+                }
+            } else if musicCell.cellState == MDCellState.Playing {
+                player?.loopAudio(true)
+                
+                musicCell.updateCellState(MDCellState.Looping)
+            } else if musicCell.cellState == MDCellState.Looping {
+                player!.stop()
+                
+                musicCell.updateCellState(MDCellState.Default)
             }
+            
         }
     }
     
@@ -230,14 +276,6 @@ extension MDMainSoundStudioViewController : AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder,
                                          successfully flag: Bool) {
         print("finished recording \(flag)")
-//        stopButton.enabled = false
-//        stopButton1.enabled = false
-//        
-//        playButton.enabled = true
-//        
-//        recordButton.setTitle("Record", forState: UIControlState())
-//        recordButton1.setTitle("Record", forState: UIControlState())
-        
     }
     
     func audioRecorderEncodeErrorDidOccur(recorder: AVAudioRecorder, error: NSError?) {
@@ -256,12 +294,20 @@ extension MDMainSoundStudioViewController : AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
         print("finished playing \(flag)")
         
-//        recordButton.enabled = true
-//        recordButton1.enabled = true
-//        
-//        stopButton.enabled = false
-//        stopButton1.enabled = false
+        let url = player.url
+        var index = 0
         
+        for i in 0..<dataSource.count {
+            let item = dataSource[i]
+            if item[MDCellData.URL] as? NSURL == url {
+                index = i
+            }
+        }
+        
+        let indexPath = NSIndexPath.init(forRow: index, inSection: 0)
+        let musicCell = collectionView.cellForItemAtIndexPath(indexPath) as! MDMusicStudioCell
+        
+        musicCell.updateCellState(MDCellState.Default)
     }
     
     func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?) {
