@@ -8,31 +8,20 @@
 
 import UIKit
 
-enum MDSoundRecordingState {
-    case MDSoundRecordingActive
-    case MDSoundRecoringInactive
+
+enum MDCellState {
+    case Default
+    case Recording
+    case Playing
+    case Looping
 }
 
-enum MDSoundPlayingState {
-    case MDSoundPlayingReadyToPlay
-    case MDSoundPlayingNotReadyToPlay
-    case MDSoundPlayingActive
-}
-
-enum MDSoundLoopState {
-    case MDSoundLoopReadyToLoop
-    case MDSoundLoopNotReadyToLoop
-    case MDSoundLoopActive
-}
-
-enum MDMusicCellState {
-    case MDMusicCellStateActive
-    case MDMusicCellStateInactive
-}
 
 class MDMusicStudioCell: UICollectionViewCell {
     
     // MARK: - Variables & outlets
+    
+    var cellState: MDCellState = .Default
     
     @IBOutlet var recordButton: UIButton!
     @IBOutlet var playButton: UIButton!
@@ -69,71 +58,66 @@ class MDMusicStudioCell: UICollectionViewCell {
         return UIColor.init(hexString: colorsDictionary[indexPathRow]!)
     }
     
-    //MARK: - Cell states
+    //MARK: - Super Cell states
     
-    func updateRecordButton(state: MDSoundRecordingState) {
+    func updateCellState(state: MDCellState) {
         switch state {
-        case .MDSoundRecordingActive:
+            
+        case .Default:
+            recordingLabel.hidden = true
+            
+            recordButton.hidden = false
+            playButton.hidden = false
+            loopButton.hidden = false
+            
+            durationLabel.stopTimer()
+            
+            playButton.setImage(UIImage.init(named: "play_button_active"), forState: UIControlState.Normal)
+            loopButton.setImage(UIImage.init(named: "loop_button_active_off"), forState: UIControlState.Normal)
+            
+            break
+            
+        case .Recording:
             recordingLabel.hidden = false
+            
+            recordButton.hidden = false
             playButton.hidden = true
             loopButton.hidden = true
+            
             durationLabel.startTimer()
+            
             break
             
-        case .MDSoundRecoringInactive:
+        case .Playing:
             recordingLabel.hidden = true
-            playButton.hidden = false
-            loopButton.hidden = false
-            durationLabel.stopTimer()
-            break
-        }
-
-    }
-    
-    func updatePlayButton(state: MDSoundPlayingState) {
-        switch state {
-        case .MDSoundPlayingReadyToPlay:
-            playButton.hidden = false
-            playButton.setImage(UIImage.init(named: "play_button_active"), forState: UIControlState.Normal)
-            break
-        
-        case .MDSoundPlayingNotReadyToPlay:
-            playButton.hidden = false
-            playButton.setImage(UIImage.init(named: "play_button_inactive"), forState: UIControlState.Normal)
-            break
             
-        case .MDSoundPlayingActive:
-            recordingLabel.hidden = false
             recordButton.hidden = true
+            playButton.hidden = false
             loopButton.hidden = false
-            playButton.setImage(UIImage.init(named: "stop_button"), forState: UIControlState.Normal)
+            
             durationLabel.startTimer()
-            break
-        }
-    }
-    
-    func updateLoopButton(state: MDSoundLoopState) {
-        switch state {
-        case .MDSoundLoopReadyToLoop:
-            loopButton.hidden = false
-            loopButton.setImage(UIImage.init(named: "loop_button_active_off"), forState: UIControlState.Normal)
+            
+            playButton.setImage(UIImage.init(named: "stop_button"), forState: UIControlState.Normal)
+            
             break
             
-        case .MDSoundLoopNotReadyToLoop:
-            loopButton.hidden = false
-            loopButton.setImage(UIImage.init(named: "loop_button_inactive"), forState: UIControlState.Normal)
-            break
+        case .Looping:
+            recordingLabel.hidden = true
             
-        case .MDSoundLoopActive:
             recordButton.hidden = true
             playButton.hidden = true
+            
             loopButton.hidden = false
+            
+            durationLabel.stopTimer()
+            
             loopButton.setImage(UIImage.init(named: "loop_button_active_on"), forState: UIControlState.Normal)
+            
             break
+            
         }
+        
+        cellState = state
     }
+    
 }
-
-
-
-
