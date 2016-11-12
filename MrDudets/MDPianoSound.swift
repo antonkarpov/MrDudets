@@ -9,26 +9,26 @@
 import Foundation
 
 enum MDNote {
-    case MDNoteC
-    case MDNoteD
-    case MDNoteE
-    case MDNoteF
-    case MDNoteG
-    case MDNoteA
-    case MDNoteB
-    case MDNoteCsharp
-    case MDNoteDsharp
-    case MDNoteEsharp
-    case MDNoteFsharp
-    case MDNoteGsharp
-    case MDNoteAsharp
-    case MDNoteBsharp
+    case mdNoteC
+    case mdNoteD
+    case mdNoteE
+    case mdNoteF
+    case mdNoteG
+    case mdNoteA
+    case mdNoteB
+    case mdNoteCsharp
+    case mdNoteDsharp
+    case mdNoteEsharp
+    case mdNoteFsharp
+    case mdNoteGsharp
+    case mdNoteAsharp
+    case mdNoteBsharp
 }
 
 class MDPianoSound: NSObject {
     var octave: Int = 0
     var note: MDNote
-    var soundUrl: NSURL?
+    var soundUrl: URL?
     
     init(octave: Int, note: MDNote) {
         self.octave = octave
@@ -37,63 +37,63 @@ class MDPianoSound: NSObject {
         super.init()
     }
     
-    func getSoundURL() -> NSURL {
+    func getSoundURL() -> URL {
         let noteString = self.stringValueForNote(self.note)
         let octaveString = self.stringValueForOctave(self.octave)
-        let soundName = noteString.stringByAppendingString(octaveString)
+        let soundName = noteString + octaveString
         
-        let url = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource(soundName, ofType: "mp3", inDirectory: "Piano Sounds")!)
+        let url = URL(fileURLWithPath: Bundle.main.path(forResource: soundName, ofType: "mp3", inDirectory: "Piano Sounds")!)
         
         return url
     }
     
-    func stringValueForNote(note: MDNote) -> String {
+    func stringValueForNote(_ note: MDNote) -> String {
         switch note {
-        case .MDNoteC:
+        case .mdNoteC:
             return "C"
             
-        case .MDNoteD:
+        case .mdNoteD:
             return "D"
             
-        case .MDNoteE:
+        case .mdNoteE:
             return "E"
             
-        case .MDNoteF:
+        case .mdNoteF:
             return "F"
             
-        case .MDNoteG:
+        case .mdNoteG:
             return "G"
             
-        case .MDNoteA:
+        case .mdNoteA:
             return "A"
             
-        case .MDNoteB:
+        case .mdNoteB:
             return "B"
             
-        case .MDNoteCsharp:
+        case .mdNoteCsharp:
             return "C#"
             
-        case .MDNoteDsharp:
+        case .mdNoteDsharp:
             return "D#"
             
-        case .MDNoteEsharp:
+        case .mdNoteEsharp:
             return "E#"
             
-        case .MDNoteFsharp:
+        case .mdNoteFsharp:
             return "F#"
             
-        case .MDNoteGsharp:
+        case .mdNoteGsharp:
             return "G#"
             
-        case .MDNoteAsharp:
+        case .mdNoteAsharp:
             return "A#"
             
-        case .MDNoteBsharp:
+        case .mdNoteBsharp:
             return "B"
         }
     }
     
-    func stringValueForOctave(octave: Int) -> String {
+    func stringValueForOctave(_ octave: Int) -> String {
         return "\(octave)"
     }
 }

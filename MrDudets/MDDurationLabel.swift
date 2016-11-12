@@ -10,28 +10,28 @@ import UIKit
 
 class MDDurationLabel: UILabel {
     let GCTimerStoppedNotification = "Timer stopped"
-    var timer: NSTimer?
+    var timer: Timer?
     var currentTimePassed = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.hidden = true
+        self.isHidden = true
     }
     
     func startTimer() {
-        self.hidden = false
-        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(self.updateTimerLabel), userInfo: nil, repeats: true)
+        self.isHidden = false
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.updateTimerLabel), userInfo: nil, repeats: true)
     }
     
     func stopTimer() {
-        self.hidden = true
+        self.isHidden = true
         timer?.invalidate()
     }
     
     func updateTimerLabel() {
         if currentTimePassed == 30 {
-            NSNotificationCenter.defaultCenter().postNotification(NSNotification.init(name: GCTimerStoppedNotification, object: nil))
-            self.hidden = true
+            NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: GCTimerStoppedNotification), object: nil))
+            self.isHidden = true
             timer?.invalidate()
             return
         }

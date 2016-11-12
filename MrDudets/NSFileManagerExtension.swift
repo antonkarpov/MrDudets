@@ -8,15 +8,15 @@
 
 import Foundation
 
-extension NSFileManager {
+extension FileManager {
     
-    class func generateURLsForRecords(count: Int) -> [NSURL] {
-        var urls: [NSURL] = []
+    class func generateURLsForRecords(_ count: Int) -> [URL] {
+        var urls: [URL] = []
         
-        let documentsDirectory = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains:.UserDomainMask)[0]
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in:.userDomainMask)[0]
         
         for index in 0..<count {
-            let url = documentsDirectory.URLByAppendingPathComponent("record-\(index).m4a")
+            let url = documentsDirectory.appendingPathComponent("record-\(index).m4a")
             
             urls.append(url)
         }

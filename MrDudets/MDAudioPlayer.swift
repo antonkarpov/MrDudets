@@ -12,19 +12,19 @@ class MDAudioPlayer {
     
     var avPlayer: AVAudioPlayer!
     
-    var soundTimer: NSTimer!
+    var soundTimer: Timer!
     
     var playing: Bool {
         get {
-            return avPlayer.playing
+            return avPlayer.isPlaying
         }
     }
     
-    init(URL url: NSURL, avDelegate: AVAudioPlayerDelegate? ) throws {
+    init(URL url: URL, avDelegate: AVAudioPlayerDelegate? ) throws {
         
         do {
             
-            avPlayer = try AVAudioPlayer(contentsOfURL: url)
+            avPlayer = try AVAudioPlayer(contentsOf: url)
             avPlayer.delegate = avDelegate
             avPlayer.prepareToPlay()
             avPlayer.volume = 1.0
@@ -36,7 +36,7 @@ class MDAudioPlayer {
         
     }
     
-    func loopAudio(loop: Bool) {
+    func loopAudio(_ loop: Bool) {
         avPlayer.numberOfLoops = loop ? -1 : 0
     }
     

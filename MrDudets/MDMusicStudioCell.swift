@@ -10,10 +10,10 @@ import UIKit
 
 
 enum MDCellState {
-    case Default
-    case Recording
-    case Playing
-    case Looping
+    case `default`
+    case recording
+    case playing
+    case looping
 }
 
 
@@ -21,7 +21,7 @@ class MDMusicStudioCell: UICollectionViewCell {
     
     // MARK: - Variables & outlets
     
-    var cellState: MDCellState = .Default
+    var cellState: MDCellState = .default
     
     @IBOutlet var recordButton: UIButton!
     @IBOutlet var playButton: UIButton!
@@ -40,12 +40,12 @@ class MDMusicStudioCell: UICollectionViewCell {
     
     // MARK: - Cell configuration
     
-    func configurateCell(indexPath: NSIndexPath) {
+    func configurateCell(_ indexPath: IndexPath) {
         self.backgroundColor = self.cellColor(indexPath.row)
-        self.recordingLabel.hidden = true
+        self.recordingLabel.isHidden = true
     }
     
-    func cellColor(indexPathRow: Int) -> UIColor {
+    func cellColor(_ indexPathRow: Int) -> UIColor {
         let colorsDictionary = [0: redColorHex,
                                 1: orangeColorHex,
                                 2: yellowColorHex,
@@ -60,58 +60,58 @@ class MDMusicStudioCell: UICollectionViewCell {
     
     //MARK: - Super Cell states
     
-    func updateCellState(state: MDCellState) {
+    func updateCellState(_ state: MDCellState) {
         switch state {
             
-        case .Default:
-            recordingLabel.hidden = true
+        case .default:
+            recordingLabel.isHidden = true
             
-            recordButton.hidden = false
-            playButton.hidden = false
-            loopButton.hidden = false
+            recordButton.isHidden = false
+            playButton.isHidden = false
+            loopButton.isHidden = false
             
             durationLabel.stopTimer()
             
-            playButton.setImage(UIImage.init(named: "play_button_active"), forState: UIControlState.Normal)
-            loopButton.setImage(UIImage.init(named: "loop_button_active_off"), forState: UIControlState.Normal)
+            playButton.setImage(UIImage.init(named: "play_button_active"), for: UIControlState())
+            loopButton.setImage(UIImage.init(named: "loop_button_active_off"), for: UIControlState())
             
             break
             
-        case .Recording:
-            recordingLabel.hidden = false
+        case .recording:
+            recordingLabel.isHidden = false
             
-            recordButton.hidden = false
-            playButton.hidden = true
-            loopButton.hidden = true
+            recordButton.isHidden = false
+            playButton.isHidden = true
+            loopButton.isHidden = true
             
             durationLabel.startTimer()
             
             break
             
-        case .Playing:
-            recordingLabel.hidden = true
+        case .playing:
+            recordingLabel.isHidden = true
             
-            recordButton.hidden = true
-            playButton.hidden = false
-            loopButton.hidden = false
+            recordButton.isHidden = true
+            playButton.isHidden = false
+            loopButton.isHidden = false
             
             durationLabel.startTimer()
             
-            playButton.setImage(UIImage.init(named: "stop_button"), forState: UIControlState.Normal)
+            playButton.setImage(UIImage.init(named: "stop_button"), for: UIControlState())
             
             break
             
-        case .Looping:
-            recordingLabel.hidden = true
+        case .looping:
+            recordingLabel.isHidden = true
             
-            recordButton.hidden = true
-            playButton.hidden = true
+            recordButton.isHidden = true
+            playButton.isHidden = true
             
-            loopButton.hidden = false
+            loopButton.isHidden = false
             
             durationLabel.stopTimer()
             
-            loopButton.setImage(UIImage.init(named: "loop_button_active_on"), forState: UIControlState.Normal)
+            loopButton.setImage(UIImage.init(named: "loop_button_active_on"), for: UIControlState())
             
             break
             

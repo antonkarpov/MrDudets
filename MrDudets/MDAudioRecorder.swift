@@ -12,33 +12,33 @@ class MDAudioRecorder {
     
     var avRecorder: AVAudioRecorder!
     
-    var recordTimer: NSTimer!
+    var recordTimer: Timer!
     
     var recording: Bool {
         get {
-            return avRecorder.recording
+            return avRecorder.isRecording
         }
     }
     
-    var url: NSURL {
+    var url: URL {
         get {
             return avRecorder.url
         }
     }
     
-    init(URL url: NSURL, avDelegate: AVAudioRecorderDelegate? ) throws {
+    init(URL url: URL, avDelegate: AVAudioRecorderDelegate? ) throws {
         
         let recordSettings:[String : AnyObject] = [
-            AVFormatIDKey:             Int(kAudioFormatAppleLossless),
-            AVEncoderAudioQualityKey : AVAudioQuality.Max.rawValue,
-            AVEncoderBitRateKey :      320000,
-            AVNumberOfChannelsKey:     2,
-            AVSampleRateKey :          44100.0
+            AVFormatIDKey:             Int(kAudioFormatAppleLossless) as AnyObject,
+            AVEncoderAudioQualityKey : AVAudioQuality.max.rawValue as AnyObject,
+            AVEncoderBitRateKey :      320000 as AnyObject,
+            AVNumberOfChannelsKey:     2 as AnyObject,
+            AVSampleRateKey :          44100.0 as AnyObject
         ]
         
         do {
-            avRecorder = try AVAudioRecorder(URL: url, settings: recordSettings)
-            avRecorder.meteringEnabled = true
+            avRecorder = try AVAudioRecorder(url: url, settings: recordSettings)
+            avRecorder.isMeteringEnabled = true
             avRecorder.delegate = avDelegate
             avRecorder.prepareToRecord() // creates/overwrites the file at soundFileURL
         } catch let error as NSError {
@@ -47,9 +47,9 @@ class MDAudioRecorder {
         }
     }
     
-    func recordWithTimer(timeInterval ti:NSTimeInterval, target aTarget: AnyObject, selector aSelector: Selector) {
+    func recordWithTimer(timeInterval ti:TimeInterval, target aTarget: AnyObject, selector aSelector: Selector) {
         avRecorder.record()
-        recordTimer = NSTimer.scheduledTimerWithTimeInterval(ti, target: aTarget, selector: aSelector, userInfo: nil, repeats: true)
+        recordTimer = Timer.scheduledTimer(timeInterval: ti, target: aTarget, selector: aSelector, userInfo: nil, repeats: true)
     }
     
     func pause() {

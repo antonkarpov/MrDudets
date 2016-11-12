@@ -14,8 +14,8 @@ class MDPianoKeyboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var G5Sound = MDPianoSound.init(octave: 3, note: MDNote.MDNoteG)
-        var url = G5Sound.getSoundURL()
+        let G5Sound = MDPianoSound.init(octave: 3, note: MDNote.mdNoteG)
+        let url = G5Sound.getSoundURL()
         
         do {
             try self.player = MDAudioPlayer.init(URL: url, avDelegate: nil)
@@ -26,7 +26,7 @@ class MDPianoKeyboardViewController: UIViewController {
         
     }
     
-    @IBAction func sdf(sender: AnyObject) {
+    @IBAction func sdf(_ sender: AnyObject) {
         player.play()
     }
 }

@@ -9,9 +9,9 @@
 import UIKit
 
 extension MDMainSoundStudioViewController : UICollectionViewDelegateFlowLayout {
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let numberOfColumns = CGFloat(4)
-        let itemWidth = (CGRectGetWidth((self.collectionView?.frame)!) - 1) / numberOfColumns
+        let itemWidth = ((self.collectionView?.frame)!.width - 1) / numberOfColumns
         
         let containerHeight = self.view.frame.height - itemWidth * 2.0
         self.containerViewConstraint.constant = containerHeight
@@ -19,11 +19,11 @@ extension MDMainSoundStudioViewController : UICollectionViewDelegateFlowLayout {
         return CGSize.init(width: itemWidth, height: itemWidth)
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
 }
