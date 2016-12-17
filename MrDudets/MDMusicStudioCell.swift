@@ -106,7 +106,6 @@ class MDMusicStudioCell: UICollectionViewCell {
             
             recordButton.isHidden = true
             playButton.isHidden = true
-            
             loopButton.isHidden = false
             
             durationLabel.stopTimer()
