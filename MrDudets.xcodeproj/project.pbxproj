@@ -100,7 +100,6 @@
 				8DBEE89E1DA8CCB400413084 /* MDCollectionView */,
 				8DBEE89D1DA8CC7200413084 /* Main Sound Studio Screen */,
 				60862A4F1DA425CA008B2CA5 /* Main.storyboard */,
-				8DBEE8A81DA8FBD700413084 /* MDDurationLabel.swift */,
 			);
 			path = MrDudets;
 			sourceTree = "<group>";
@@ -118,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				8DBEE89F1DA8CCF100413084 /* MDMusicStudioCell.swift */,
+				8DBEE8A81DA8FBD700413084 /* MDDurationLabel.swift */,
 				8DBEE8A11DA8DA0400413084 /* UIColor+Hex.swift */,
 			);
 			name = MDCollectionView;
