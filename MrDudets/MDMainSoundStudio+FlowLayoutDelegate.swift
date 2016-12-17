@@ -9,6 +9,7 @@
 import UIKit
 
 extension MDMainSoundStudioViewController : UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let numberOfColumns = CGFloat(4)
         let itemWidth = ((self.collectionView?.frame)!.width - 1) / numberOfColumns
