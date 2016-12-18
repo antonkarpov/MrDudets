@@ -23,6 +23,7 @@
 		8DBEE8A21DA8DA0400413084 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBEE8A11DA8DA0400413084 /* UIColor+Hex.swift */; };
 		8DBEE8A71DA8EE3500413084 /* MDMainSoundStudio+FlowLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBEE8A61DA8EE3500413084 /* MDMainSoundStudio+FlowLayoutDelegate.swift */; };
 		8DBEE8A91DA8FBD700413084 /* MDDurationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBEE8A81DA8FBD700413084 /* MDDurationLabel.swift */; };
+		CA67F7B61E06D2B700A18B6C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA67F7B51E06D2B700A18B6C /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		8DBEE8A11DA8DA0400413084 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		8DBEE8A61DA8EE3500413084 /* MDMainSoundStudio+FlowLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MDMainSoundStudio+FlowLayoutDelegate.swift"; sourceTree = "<group>"; };
 		8DBEE8A81DA8FBD700413084 /* MDDurationLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDDurationLabel.swift; sourceTree = "<group>"; };
+		CA67F7B51E06D2B700A18B6C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		60862A4A1DA425CA008B2CA5 /* MrDudets */ = {
 			isa = PBXGroup;
 			children = (
+				CA67F7B21E06C39200A18B6C /* Settings screen */,
 				601A34331DAA295000016A97 /* Recorder and Player */,
 				601A342C1DAA28FD00016A97 /* NSFileManagerExtensions */,
 				8DBEE89E1DA8CCB400413084 /* MDCollectionView */,
@@ -159,6 +162,14 @@
 			children = (
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		CA67F7B21E06C39200A18B6C /* Settings screen */ = {
+			isa = PBXGroup;
+			children = (
+				CA67F7B51E06D2B700A18B6C /* SettingsViewController.swift */,
+			);
+			name = "Settings screen";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +253,7 @@
 				8DBEE8A21DA8DA0400413084 /* UIColor+Hex.swift in Sources */,
 				601A34321DAA293E00016A97 /* NSFileManagerExtension.swift in Sources */,
 				60862A4C1DA425CA008B2CA5 /* AppDelegate.swift in Sources */,
+				CA67F7B61E06D2B700A18B6C /* SettingsViewController.swift in Sources */,
 				6062F7521E06B5E600B7BB26 /* MDMainSoundStudioViewController+AVAudioPlayerDelegate.swift in Sources */,
 				6062F7541E06B74C00B7BB26 /* MDMainSoundStudioViewController+Permissions.swift in Sources */,
 				8DBEE8A71DA8EE3500413084 /* MDMainSoundStudio+FlowLayoutDelegate.swift in Sources */,

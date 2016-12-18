@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gUe-gp-sgp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gUe-gp-sgp">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -184,7 +184,7 @@
                                 </constraints>
                                 <state key="normal" image="SettingsButton"/>
                                 <connections>
-                                    <action selector="settingsButtonTapped:" destination="90H-hO-D04" eventType="touchUpInside" id="Qpz-Xw-Nht"/>
+                                    <segue destination="K6I-Ug-y7T" kind="presentation" modalPresentationStyle="formSheet" id="GaH-Cg-ieB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X8N-4y-08x" userLabel="RateButton">
@@ -220,6 +220,126 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XXC-RL-0M2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="561.9140625" y="891.40625"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="G4X-fc-1mn">
+            <objects>
+                <navigationController id="K6I-Ug-y7T" sceneMemberID="viewController">
+                    <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lvL-xE-XYr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="YaS-u0-EIZ" kind="relationship" relationship="rootViewController" id="TFb-QR-V9F"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HdI-q1-8kz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1103" y="260"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="xJX-hT-5KK">
+            <objects>
+                <tableViewController id="YaS-u0-EIZ" customClass="SettingsViewController" customModule="MrDudets" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="56" sectionHeaderHeight="28" sectionFooterHeight="28" id="LYG-tk-NL8">
+                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="w15-9j-z15">
+                            <rect key="frame" x="0.0" y="168" width="540" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <sections>
+                            <tableViewSection id="gtE-hi-y1H">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="M4x-ny-QKi">
+                                        <rect key="frame" x="0.0" y="0.0" width="540" height="56"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M4x-ny-QKi" id="Uxu-uX-jGV">
+                                            <rect key="frame" x="0.0" y="0.0" width="540" height="55"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDX-ST-a1Z">
+                                                    <rect key="frame" x="20" y="18" width="49" height="34"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <state key="normal" title="About">
+                                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="RDX-ST-a1Z" firstAttribute="centerY" secondItem="Uxu-uX-jGV" secondAttribute="centerY" id="R1J-ck-fJs"/>
+                                                <constraint firstItem="RDX-ST-a1Z" firstAttribute="leading" secondItem="Uxu-uX-jGV" secondAttribute="leading" constant="20" id="a2U-C0-RzA"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="DYe-sj-NUl">
+                                        <rect key="frame" x="0.0" y="56" width="540" height="56"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DYe-sj-NUl" id="FsI-vY-K27">
+                                            <rect key="frame" x="0.0" y="0.0" width="540" height="55"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hiP-d6-ES9">
+                                                    <rect key="frame" x="20" y="18" width="64" height="34"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <state key="normal" title="Rate Us">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="hiP-d6-ES9" firstAttribute="centerY" secondItem="FsI-vY-K27" secondAttribute="centerY" id="CCl-Ip-Pnv"/>
+                                                <constraint firstItem="hiP-d6-ES9" firstAttribute="leading" secondItem="FsI-vY-K27" secondAttribute="leading" constant="20" id="Khf-1L-N4R"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ptf-t7-L16">
+                                        <rect key="frame" x="0.0" y="112" width="540" height="56"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ptf-t7-L16" id="GJd-yo-eJZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="540" height="55"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G8D-TG-hLg">
+                                                    <rect key="frame" x="20" y="18" width="133" height="34"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <state key="normal" title="Contact support">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="contactSupportAction:" destination="YaS-u0-EIZ" eventType="touchUpInside" id="KTM-0w-yY4"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="G8D-TG-hLg" firstAttribute="centerY" secondItem="GJd-yo-eJZ" secondAttribute="centerY" id="PXK-wZ-eiF"/>
+                                                <constraint firstItem="G8D-TG-hLg" firstAttribute="leading" secondItem="GJd-yo-eJZ" secondAttribute="leading" constant="20" id="kGo-hy-o0o"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="YaS-u0-EIZ" id="njq-Lb-xsx"/>
+                            <outlet property="delegate" destination="YaS-u0-EIZ" id="h3R-AC-zwl"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="dht-Ef-Wd2">
+                        <barButtonItem key="leftBarButtonItem" title="Lets dudets!" id="W9W-n2-Ohd">
+                            <connections>
+                                <action selector="letsDudetsAction:" destination="YaS-u0-EIZ" id="Dhd-6k-Zl8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="27u-hq-ywx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1488" y="259"/>
         </scene>
     </scenes>
     <resources>

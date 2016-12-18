@@ -10,9 +10,6 @@ import UIKit
 
 class BottomPanelViewController : UIViewController {
     
-    @IBAction func settingsButtonTapped(_ sender: Any) {
-    }
-    
     @IBAction func rateButtonTapped(_ sender: Any) {
     }
     
