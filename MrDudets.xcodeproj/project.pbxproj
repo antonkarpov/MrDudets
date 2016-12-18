@@ -88,9 +88,9 @@
 			children = (
 				601A34331DAA295000016A97 /* Recorder and Player */,
 				601A342C1DAA28FD00016A97 /* NSFileManagerExtensions */,
-				8DBEE8A51DA8DFB300413084 /* Support Files */,
 				8DBEE89E1DA8CCB400413084 /* MDCollectionView */,
 				8DBEE89D1DA8CC7200413084 /* Main Sound Studio Screen */,
+				8DBEE8A51DA8DFB300413084 /* Support Files */,
 				60862A4F1DA425CA008B2CA5 /* Main.storyboard */,
 			);
 			path = MrDudets;
