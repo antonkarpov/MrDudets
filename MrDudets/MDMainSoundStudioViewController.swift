@@ -201,9 +201,8 @@ class MDMainSoundStudioViewController: UIViewController, UICollectionViewDelegat
             let player = try MDAudioPlayer(URL: url, avDelegate: self)
             dataSource[index!][MDCellData.player] = player
             player.loopAudio(loopAudio)
-            player.play()
             
-            return true
+            return player.play()
             
         } catch let error as NSError {
             //self.player = nil
