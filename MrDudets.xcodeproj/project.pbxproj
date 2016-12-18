@@ -12,6 +12,7 @@
 		601A34321DAA293E00016A97 /* NSFileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601A342F1DAA293E00016A97 /* NSFileManagerExtension.swift */; };
 		6062F74F1E06B52D00B7BB26 /* MDMainSoundStudioViewController+AVAudioRecorderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6062F74E1E06B52D00B7BB26 /* MDMainSoundStudioViewController+AVAudioRecorderDelegate.swift */; };
 		6062F7521E06B5E600B7BB26 /* MDMainSoundStudioViewController+AVAudioPlayerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6062F7511E06B5E600B7BB26 /* MDMainSoundStudioViewController+AVAudioPlayerDelegate.swift */; };
+		6062F7541E06B74C00B7BB26 /* MDMainSoundStudioViewController+Permissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6062F7531E06B74C00B7BB26 /* MDMainSoundStudioViewController+Permissions.swift */; };
 		60862A4C1DA425CA008B2CA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60862A4B1DA425CA008B2CA5 /* AppDelegate.swift */; };
 		60862A511DA425CA008B2CA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60862A4F1DA425CA008B2CA5 /* Main.storyboard */; };
 		60862A531DA425CA008B2CA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60862A521DA425CA008B2CA5 /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 		601A342F1DAA293E00016A97 /* NSFileManagerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSFileManagerExtension.swift; sourceTree = "<group>"; };
 		6062F74E1E06B52D00B7BB26 /* MDMainSoundStudioViewController+AVAudioRecorderDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MDMainSoundStudioViewController+AVAudioRecorderDelegate.swift"; sourceTree = "<group>"; };
 		6062F7511E06B5E600B7BB26 /* MDMainSoundStudioViewController+AVAudioPlayerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MDMainSoundStudioViewController+AVAudioPlayerDelegate.swift"; sourceTree = "<group>"; };
+		6062F7531E06B74C00B7BB26 /* MDMainSoundStudioViewController+Permissions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MDMainSoundStudioViewController+Permissions.swift"; sourceTree = "<group>"; };
 		60862A481DA425CA008B2CA5 /* MrDudets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MrDudets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60862A4B1DA425CA008B2CA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60862A501DA425CA008B2CA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				8DBEE8A61DA8EE3500413084 /* MDMainSoundStudio+FlowLayoutDelegate.swift */,
 				6062F74E1E06B52D00B7BB26 /* MDMainSoundStudioViewController+AVAudioRecorderDelegate.swift */,
 				6062F7511E06B5E600B7BB26 /* MDMainSoundStudioViewController+AVAudioPlayerDelegate.swift */,
+				6062F7531E06B74C00B7BB26 /* MDMainSoundStudioViewController+Permissions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				601A34321DAA293E00016A97 /* NSFileManagerExtension.swift in Sources */,
 				60862A4C1DA425CA008B2CA5 /* AppDelegate.swift in Sources */,
 				6062F7521E06B5E600B7BB26 /* MDMainSoundStudioViewController+AVAudioPlayerDelegate.swift in Sources */,
+				6062F7541E06B74C00B7BB26 /* MDMainSoundStudioViewController+Permissions.swift in Sources */,
 				8DBEE8A71DA8EE3500413084 /* MDMainSoundStudio+FlowLayoutDelegate.swift in Sources */,
 				8DBEE8A01DA8CCF100413084 /* MDMusicStudioCell.swift in Sources */,
 			);
