@@ -14,7 +14,8 @@ enum MDCellData {
     case player
 }
 
-class MDMainSoundStudioViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class MDMainSoundStudioViewController: UIViewController,
+UICollectionViewDelegate, UICollectionViewDataSource {
     
     // MARK: - Variables
     
@@ -55,20 +56,24 @@ class MDMainSoundStudioViewController: UIViewController, UICollectionViewDelegat
         return 1
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
         return 8
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MusicalCell", for: indexPath) as! MDMusicStudioCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MusicalCell",
+                                                      for: indexPath) as! MDMusicStudioCell
         
         cell.configurateCell(indexPath)
         
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
         
         let musicCell = collectionView.cellForItem(at: indexPath) as! MDMusicStudioCell
         loopButtonAction(musicCell.loopButton)
