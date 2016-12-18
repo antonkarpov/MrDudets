@@ -13,6 +13,7 @@
 		6062F74F1E06B52D00B7BB26 /* MDMainSoundStudioViewController+AVAudioRecorderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6062F74E1E06B52D00B7BB26 /* MDMainSoundStudioViewController+AVAudioRecorderDelegate.swift */; };
 		6062F7521E06B5E600B7BB26 /* MDMainSoundStudioViewController+AVAudioPlayerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6062F7511E06B5E600B7BB26 /* MDMainSoundStudioViewController+AVAudioPlayerDelegate.swift */; };
 		6062F7541E06B74C00B7BB26 /* MDMainSoundStudioViewController+Permissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6062F7531E06B74C00B7BB26 /* MDMainSoundStudioViewController+Permissions.swift */; };
+		6062F7571E06B9DA00B7BB26 /* BottomPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6062F7561E06B9DA00B7BB26 /* BottomPanelViewController.swift */; };
 		60862A4C1DA425CA008B2CA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60862A4B1DA425CA008B2CA5 /* AppDelegate.swift */; };
 		60862A511DA425CA008B2CA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60862A4F1DA425CA008B2CA5 /* Main.storyboard */; };
 		60862A531DA425CA008B2CA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60862A521DA425CA008B2CA5 /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 		6062F74E1E06B52D00B7BB26 /* MDMainSoundStudioViewController+AVAudioRecorderDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MDMainSoundStudioViewController+AVAudioRecorderDelegate.swift"; sourceTree = "<group>"; };
 		6062F7511E06B5E600B7BB26 /* MDMainSoundStudioViewController+AVAudioPlayerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MDMainSoundStudioViewController+AVAudioPlayerDelegate.swift"; sourceTree = "<group>"; };
 		6062F7531E06B74C00B7BB26 /* MDMainSoundStudioViewController+Permissions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MDMainSoundStudioViewController+Permissions.swift"; sourceTree = "<group>"; };
+		6062F7561E06B9DA00B7BB26 /* BottomPanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomPanelViewController.swift; sourceTree = "<group>"; };
 		60862A481DA425CA008B2CA5 /* MrDudets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MrDudets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60862A4B1DA425CA008B2CA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60862A501DA425CA008B2CA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -83,6 +85,14 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		6062F7551E06B9BD00B7BB26 /* BottomPanel */ = {
+			isa = PBXGroup;
+			children = (
+				6062F7561E06B9DA00B7BB26 /* BottomPanelViewController.swift */,
+			);
+			name = BottomPanel;
+			sourceTree = "<group>";
+		};
 		60862A3F1DA425CA008B2CA5 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +116,7 @@
 				601A34331DAA295000016A97 /* Recorder and Player */,
 				601A342C1DAA28FD00016A97 /* NSFileManagerExtensions */,
 				8DBEE89E1DA8CCB400413084 /* MDCollectionView */,
+				6062F7551E06B9BD00B7BB26 /* BottomPanel */,
 				8DBEE89D1DA8CC7200413084 /* Main Sound Studio Screen */,
 				8DBEE8A51DA8DFB300413084 /* Support Files */,
 				60862A4F1DA425CA008B2CA5 /* Main.storyboard */,
@@ -227,6 +238,7 @@
 				601A34311DAA293E00016A97 /* MDAudioRecorder.swift in Sources */,
 				8DBEE89C1DA8CA4400413084 /* MDMainSoundStudioViewController.swift in Sources */,
 				8DBEE8A91DA8FBD700413084 /* MDDurationLabel.swift in Sources */,
+				6062F7571E06B9DA00B7BB26 /* BottomPanelViewController.swift in Sources */,
 				8DBEE8A21DA8DA0400413084 /* UIColor+Hex.swift in Sources */,
 				601A34321DAA293E00016A97 /* NSFileManagerExtension.swift in Sources */,
 				60862A4C1DA425CA008B2CA5 /* AppDelegate.swift in Sources */,
