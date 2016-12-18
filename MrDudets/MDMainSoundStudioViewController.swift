@@ -14,7 +14,8 @@ enum MDCellData {
     case player
 }
 
-class MDMainSoundStudioViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class MDMainSoundStudioViewController: UIViewController,
+UICollectionViewDelegate, UICollectionViewDataSource {
     
     // MARK: - Variables
     
@@ -49,72 +50,30 @@ class MDMainSoundStudioViewController: UIViewController, UICollectionViewDelegat
         }
     }
     
-    // MARK: Permissions and Session Setup
-    
-    func requestPermissions() {
-        let session:AVAudioSession = AVAudioSession.sharedInstance()
-        
-        // ios 8 and later
-        
-        if (session.responds(to: #selector(AVAudioSession.requestRecordPermission(_:)))) {
-            AVAudioSession.sharedInstance().requestRecordPermission({(granted: Bool)-> Void in
-                if granted {
-                    
-                    print("Permission to record granted")
-                    
-                    self.setSessionPlayAndRecord()
-                    
-                } else {
-                    print("Permission to record not granted")
-                }
-            })
-        } else {
-            print("requestRecordPermission unrecognized")
-        }
-    }
-    
-    func setSessionPlayAndRecord() {
-        
-        let session = AVAudioSession.sharedInstance()
-        
-        do {
-            try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
-        } catch let error as NSError {
-            
-            print("could not set session category")
-            print(error.localizedDescription)
-        }
-        
-        do {
-            try session.setActive(true)
-        } catch let error as NSError {
-            
-            print("could not make session active")
-            print(error.localizedDescription)
-        }
-        
-    }
-    
     // MARK: - UICollectionViewDataSource
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
         return 8
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MusicalCell", for: indexPath) as! MDMusicStudioCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MusicalCell",
+                                                      for: indexPath) as! MDMusicStudioCell
         
         cell.configurateCell(indexPath)
         
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
         
         let musicCell = collectionView.cellForItem(at: indexPath) as! MDMusicStudioCell
         loopButtonAction(musicCell.loopButton)
@@ -264,57 +223,6 @@ class MDMainSoundStudioViewController: UIViewController, UICollectionViewDelegat
         }
     }
     
-    
-}
-
-
-// MARK: AVAudioRecorderDelegate
-
-extension MDMainSoundStudioViewController : AVAudioRecorderDelegate {
-    
-    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder,
-                                         successfully flag: Bool) {
-        print("finished recording \(flag)")
-    }
-    
-    func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
-        
-        if let e = error {
-            print("\(e.localizedDescription)")
-        }
-        
-    }
-    
-}
-
-// MARK: AVAudioPlayerDelegate
-extension MDMainSoundStudioViewController : AVAudioPlayerDelegate {
-    
-    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        print("finished playing \(flag)")
-        
-        let url = player.url
-        var index = 0
-        
-        for i in 0..<dataSource.count {
-            let item = dataSource[i]
-            if item[MDCellData.url] as? URL == url {
-                index = i
-            }
-        }
-        
-        let indexPath = IndexPath.init(row: index, section: 0)
-        let musicCell = collectionView.cellForItem(at: indexPath) as! MDMusicStudioCell
-        
-        musicCell.updateCellState(MDCellState.default)
-    }
-    
-    func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
-        if let e = error {
-            print("\(e.localizedDescription)")
-        }
-        
-    }
 }
 
 

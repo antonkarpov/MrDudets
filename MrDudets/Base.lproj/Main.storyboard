@@ -4,8 +4,8 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -144,19 +144,89 @@
             </objects>
             <point key="canvasLocation" x="562" y="318"/>
         </scene>
-        <!--View Controller-->
+        <!--Bottom Panel View Controller-->
         <scene sceneID="cUF-Xi-f5k">
             <objects>
-                <viewController id="90H-hO-D04" sceneMemberID="viewController">
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="1800" height="200"/>
+                <viewController id="90H-hO-D04" customClass="BottomPanelViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gbr-n1-4ww"/>
+                        <viewControllerLayoutGuide type="bottom" id="yqA-ow-2NI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zxz-Do-ImD">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="200"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Speaker" translatesAutoresizingMaskIntoConstraints="NO" id="dM6-Yp-tBc">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="dM6-Yp-tBc" secondAttribute="height" multiplier="1:1" id="coU-Zm-Bsk"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Speaker" translatesAutoresizingMaskIntoConstraints="NO" id="xdg-Du-Rwq">
+                                <rect key="frame" x="825" y="0.0" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="xdg-Du-Rwq" secondAttribute="height" multiplier="1:1" id="PNT-q8-KNZ"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PanelTitle" translatesAutoresizingMaskIntoConstraints="NO" id="PjU-Bq-ykm">
+                                <rect key="frame" x="351" y="38" width="322" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="322" id="2mL-sk-3Fe"/>
+                                    <constraint firstAttribute="width" secondItem="PjU-Bq-ykm" secondAttribute="height" multiplier="161:22" id="Krx-kN-IUh"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dEO-kr-3a4" userLabel="SettingsButton">
+                                <rect key="frame" x="415" y="122" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="D1y-ok-hV4"/>
+                                    <constraint firstAttribute="width" secondItem="dEO-kr-3a4" secondAttribute="height" multiplier="1:1" id="E3W-2q-aiv"/>
+                                    <constraint firstAttribute="height" constant="50" id="Mog-rW-W61"/>
+                                </constraints>
+                                <state key="normal" image="SettingsButton"/>
+                                <connections>
+                                    <action selector="settingsButtonTapped:" destination="90H-hO-D04" eventType="touchUpInside" id="Qpz-Xw-Nht"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X8N-4y-08x" userLabel="RateButton">
+                                <rect key="frame" x="558" y="122" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="GL5-tL-sz8"/>
+                                    <constraint firstAttribute="width" secondItem="X8N-4y-08x" secondAttribute="height" multiplier="1:1" id="Sd8-ZK-2m3"/>
+                                    <constraint firstAttribute="width" constant="50" id="exH-kv-zrF"/>
+                                </constraints>
+                                <state key="normal" image="RateButton"/>
+                                <connections>
+                                    <action selector="rateButtonTapped:" destination="90H-hO-D04" eventType="touchUpInside" id="P7R-gp-Sfb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.62352941176470589" green="0.61568627450980395" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="xdg-Du-Rwq" firstAttribute="bottom" secondItem="yqA-ow-2NI" secondAttribute="top" id="67g-E3-oPH"/>
+                            <constraint firstItem="xdg-Du-Rwq" firstAttribute="top" secondItem="dM6-Yp-tBc" secondAttribute="top" id="7Vr-nb-3ev"/>
+                            <constraint firstItem="dM6-Yp-tBc" firstAttribute="leading" secondItem="zxz-Do-ImD" secondAttribute="leading" id="9ao-4O-ILM"/>
+                            <constraint firstItem="dEO-kr-3a4" firstAttribute="top" secondItem="PjU-Bq-ykm" secondAttribute="bottom" constant="40" id="EO0-8y-YK1"/>
+                            <constraint firstItem="X8N-4y-08x" firstAttribute="top" secondItem="PjU-Bq-ykm" secondAttribute="bottom" constant="40" id="FWh-aG-Vae"/>
+                            <constraint firstItem="PjU-Bq-ykm" firstAttribute="centerY" secondItem="zxz-Do-ImD" secondAttribute="centerY" constant="-40" id="Lss-HS-slS"/>
+                            <constraint firstItem="PjU-Bq-ykm" firstAttribute="centerX" secondItem="zxz-Do-ImD" secondAttribute="centerX" id="Oe9-ll-j21"/>
+                            <constraint firstItem="X8N-4y-08x" firstAttribute="leading" secondItem="dEO-kr-3a4" secondAttribute="trailing" constant="93" id="T7u-IO-dm6"/>
+                            <constraint firstItem="xdg-Du-Rwq" firstAttribute="bottom" secondItem="dM6-Yp-tBc" secondAttribute="bottom" id="X2Z-Qs-7Jo"/>
+                            <constraint firstItem="xdg-Du-Rwq" firstAttribute="top" secondItem="gbr-n1-4ww" secondAttribute="bottom" id="hW9-3p-dbS"/>
+                            <constraint firstItem="dEO-kr-3a4" firstAttribute="leading" secondItem="PjU-Bq-ykm" secondAttribute="leading" constant="64" id="iap-O4-7iW"/>
+                            <constraint firstAttribute="trailing" secondItem="xdg-Du-Rwq" secondAttribute="trailing" constant="-1" id="yfq-hk-1N6"/>
+                        </constraints>
+                    </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XXC-RL-0M2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="562" y="892"/>
+            <point key="canvasLocation" x="561.9140625" y="891.40625"/>
         </scene>
     </scenes>
     <resources>
+        <image name="PanelTitle" width="792" height="110"/>
+        <image name="RateButton" width="100" height="102"/>
+        <image name="SettingsButton" width="100" height="102"/>
+        <image name="Speaker" width="684" height="684"/>
         <image name="loop_button_active_off" width="148" height="144"/>
         <image name="play_button_active" width="108" height="120"/>
         <image name="record_button" width="136" height="136"/>
