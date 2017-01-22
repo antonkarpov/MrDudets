@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import Crashlytics
 
 enum MDCellData {
     case url
@@ -123,6 +124,7 @@ UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     @IBAction func recordButtonAction(_ sender: UIButton) {
+        Answers.logCustomEvent(withName: "Record button pressed", customAttributes: nil)
         
         if let cell = sender.superview?.superview {
             
@@ -160,6 +162,7 @@ UICollectionViewDelegate, UICollectionViewDataSource {
             let player = try MDAudioPlayer(URL: url, avDelegate: self)
             dataSource[index!][MDCellData.player] = player
             player.loopAudio(loopAudio)
+            let _ = player.play()
             
             return player.play()
             
@@ -172,6 +175,7 @@ UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     @IBAction func playButtonAction(_ sender: UIButton) {
+        Answers.logCustomEvent(withName: "Play button pressed", customAttributes: nil)
         
         if let cell = sender.superview?.superview {
             
@@ -196,6 +200,7 @@ UICollectionViewDelegate, UICollectionViewDataSource {
     }
 
     @IBAction func loopButtonAction(_ sender: UIButton) {
+        Answers.logCustomEvent(withName: "Loop button pressed", customAttributes: nil)
         
         if let cell = sender.superview?.superview {
             

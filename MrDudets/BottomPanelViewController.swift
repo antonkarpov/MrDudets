@@ -7,10 +7,18 @@
 //
 
 import UIKit
+import Crashlytics
 
 class BottomPanelViewController : UIViewController {
     
-    @IBAction func rateButtonTapped(_ sender: Any) {
+    @IBAction func settingsButtonAction(_ sender: UIButton) {
+        Answers.logCustomEvent(withName: "Settings button pressed", customAttributes: nil)
+        
+        performSegue(withIdentifier: "SettingsScreenSegue", sender: sender)
+    }
+    
+    @IBAction func rateUsButtonAction(_ sender: UIButton) {
+        Answers.logCustomEvent(withName: "RateUs button pressed", customAttributes: nil)
     }
     
 }

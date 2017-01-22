@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A6309A36FED4B131B0C928A /* Pods_MrDudets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A43FE640888CB5A1A52E4F6A /* Pods_MrDudets.framework */; };
 		601A34301DAA293E00016A97 /* MDAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601A342D1DAA293E00016A97 /* MDAudioPlayer.swift */; };
 		601A34311DAA293E00016A97 /* MDAudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601A342E1DAA293E00016A97 /* MDAudioRecorder.swift */; };
 		601A34321DAA293E00016A97 /* NSFileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601A342F1DAA293E00016A97 /* NSFileManagerExtension.swift */; };
@@ -45,6 +46,9 @@
 		8DBEE8A11DA8DA0400413084 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		8DBEE8A61DA8EE3500413084 /* MDMainSoundStudio+FlowLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MDMainSoundStudio+FlowLayoutDelegate.swift"; sourceTree = "<group>"; };
 		8DBEE8A81DA8FBD700413084 /* MDDurationLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDDurationLabel.swift; sourceTree = "<group>"; };
+		A43FE640888CB5A1A52E4F6A /* Pods_MrDudets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MrDudets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD581F62B7B5B664484A63BD /* Pods-MrDudets.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MrDudets.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MrDudets/Pods-MrDudets.debug.xcconfig"; sourceTree = "<group>"; };
+		B83AC55E10965BE94C0557E2 /* Pods-MrDudets.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MrDudets.release.xcconfig"; path = "Pods/Target Support Files/Pods-MrDudets/Pods-MrDudets.release.xcconfig"; sourceTree = "<group>"; };
 		CA67F7B51E06D2B700A18B6C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -53,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A6309A36FED4B131B0C928A /* Pods_MrDudets.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +106,8 @@
 				8DBEE8AA1DAA4A4F00413084 /* Resources */,
 				60862A4A1DA425CA008B2CA5 /* MrDudets */,
 				60862A491DA425CA008B2CA5 /* Products */,
+				F861FEECAFA4A5FDB335CD4D /* Pods */,
+				B26847DEEF3A7595D824896D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -164,12 +171,29 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		B26847DEEF3A7595D824896D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A43FE640888CB5A1A52E4F6A /* Pods_MrDudets.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CA67F7B21E06C39200A18B6C /* Settings screen */ = {
 			isa = PBXGroup;
 			children = (
 				CA67F7B51E06D2B700A18B6C /* SettingsViewController.swift */,
 			);
 			name = "Settings screen";
+			sourceTree = "<group>";
+		};
+		F861FEECAFA4A5FDB335CD4D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AD581F62B7B5B664484A63BD /* Pods-MrDudets.debug.xcconfig */,
+				B83AC55E10965BE94C0557E2 /* Pods-MrDudets.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,9 +203,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 60862A5A1DA425CA008B2CA5 /* Build configuration list for PBXNativeTarget "MrDudets" */;
 			buildPhases = (
+				F65BB1AE2C86002394E1BAA7 /* [CP] Check Pods Manifest.lock */,
 				60862A441DA425CA008B2CA5 /* Sources */,
 				60862A451DA425CA008B2CA5 /* Frameworks */,
 				60862A461DA425CA008B2CA5 /* Resources */,
+				E65EBCF2337E051205D796A8 /* [CP] Embed Pods Frameworks */,
+				BC0C34EBE13338ADEBA7981B /* [CP] Copy Pods Resources */,
+				CA9072BF1E3492ED0037F15D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -204,6 +232,7 @@
 				TargetAttributes = {
 					60862A471DA425CA008B2CA5 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = L686KWHX6R;
 						LastSwiftMigration = 0810;
 					};
 				};
@@ -238,6 +267,67 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BC0C34EBE13338ADEBA7981B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MrDudets/Pods-MrDudets-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA9072BF1E3492ED0037F15D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" cddcd05876375c3455e1d561f101e5e3df456411 42bd8a83d435d8765bd820ebb0174c96f02eb74fbb6e688982030a40885cb738";
+		};
+		E65EBCF2337E051205D796A8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MrDudets/Pods-MrDudets-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F65BB1AE2C86002394E1BAA7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		60862A441DA425CA008B2CA5 /* Sources */ = {
@@ -375,8 +465,10 @@
 		};
 		60862A5B1DA425CA008B2CA5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD581F62B7B5B664484A63BD /* Pods-MrDudets.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = L686KWHX6R;
 				INFOPLIST_FILE = MrDudets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -388,8 +480,10 @@
 		};
 		60862A5C1DA425CA008B2CA5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B83AC55E10965BE94C0557E2 /* Pods-MrDudets.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = L686KWHX6R;
 				INFOPLIST_FILE = MrDudets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
