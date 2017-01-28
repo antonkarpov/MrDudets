@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageUI
+import Crashlytics
 
 class SettingsViewController: UITableViewController, MFMailComposeViewControllerDelegate {
     
@@ -17,6 +18,7 @@ class SettingsViewController: UITableViewController, MFMailComposeViewController
     
     @IBAction func rateUsAction(_ sender: UIButton) {
         //TO DO: implement a rate the app action
+        Answers.logCustomEvent(withName: "RateUsInSettings button pressed", customAttributes: nil)
     }
     
     @IBAction func letsDudetsAction(_ sender: UIBarButtonItem) {
@@ -24,6 +26,7 @@ class SettingsViewController: UITableViewController, MFMailComposeViewController
     }
     
     @IBAction func contactSupportAction(_ sender: UIButton) {
+        Answers.logCustomEvent(withName: "Contact support button pressed", customAttributes: nil)
         
         let mailComposeViewController = configuredMailComposeViewController()
         if MFMailComposeViewController.canSendMail() {

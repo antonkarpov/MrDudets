@@ -147,7 +147,7 @@
         <!--Bottom Panel View Controller-->
         <scene sceneID="cUF-Xi-f5k">
             <objects>
-                <viewController id="90H-hO-D04" customClass="BottomPanelViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BottomPanelViewController" id="90H-hO-D04" customClass="BottomPanelViewController" customModule="MrDudets" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gbr-n1-4ww"/>
                         <viewControllerLayoutGuide type="bottom" id="yqA-ow-2NI"/>
@@ -184,7 +184,7 @@
                                 </constraints>
                                 <state key="normal" image="SettingsButton"/>
                                 <connections>
-                                    <segue destination="K6I-Ug-y7T" kind="presentation" modalPresentationStyle="formSheet" id="GaH-Cg-ieB"/>
+                                    <action selector="settingsButtonAction:" destination="90H-hO-D04" eventType="touchUpInside" id="fuh-Ge-y6P"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X8N-4y-08x" userLabel="RateButton">
@@ -196,7 +196,7 @@
                                 </constraints>
                                 <state key="normal" image="RateButton"/>
                                 <connections>
-                                    <action selector="rateButtonTapped:" destination="90H-hO-D04" eventType="touchUpInside" id="P7R-gp-Sfb"/>
+                                    <action selector="rateUsButtonAction:" destination="90H-hO-D04" eventType="touchUpInside" id="809-5Y-Anr"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -216,6 +216,9 @@
                             <constraint firstAttribute="trailing" secondItem="xdg-Du-Rwq" secondAttribute="trailing" constant="-1" id="yfq-hk-1N6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="K6I-Ug-y7T" kind="presentation" identifier="SettingsScreenSegue" modalPresentationStyle="formSheet" id="RYP-Zh-Qbf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XXC-RL-0M2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -258,11 +261,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="540" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M4x-ny-QKi" id="Uxu-uX-jGV">
-                                            <rect key="frame" x="0.0" y="0.0" width="540" height="55"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="540" height="55.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDX-ST-a1Z">
-                                                    <rect key="frame" x="20" y="18" width="49" height="34"/>
+                                                    <rect key="frame" x="20" y="11" width="49" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <state key="normal" title="About">
                                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -279,15 +282,18 @@
                                         <rect key="frame" x="0.0" y="56" width="540" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DYe-sj-NUl" id="FsI-vY-K27">
-                                            <rect key="frame" x="0.0" y="0.0" width="540" height="55"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="540" height="55.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hiP-d6-ES9">
-                                                    <rect key="frame" x="20" y="18" width="64" height="34"/>
+                                                    <rect key="frame" x="20" y="11" width="64" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <state key="normal" title="Rate Us">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="rateUsAction:" destination="YaS-u0-EIZ" eventType="touchUpInside" id="DgP-2W-3li"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -300,11 +306,11 @@
                                         <rect key="frame" x="0.0" y="112" width="540" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ptf-t7-L16" id="GJd-yo-eJZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="540" height="55"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="540" height="55.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G8D-TG-hLg">
-                                                    <rect key="frame" x="20" y="18" width="133" height="34"/>
+                                                    <rect key="frame" x="20" y="11" width="133" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <state key="normal" title="Contact support">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
