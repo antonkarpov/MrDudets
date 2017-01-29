@@ -6,6 +6,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -257,11 +258,11 @@
                         <sections>
                             <tableViewSection id="gtE-hi-y1H">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="M4x-ny-QKi">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="M4x-ny-QKi">
                                         <rect key="frame" x="0.0" y="0.0" width="540" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M4x-ny-QKi" id="Uxu-uX-jGV">
-                                            <rect key="frame" x="0.0" y="0.0" width="540" height="55.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="507" height="55.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDX-ST-a1Z">
@@ -277,6 +278,9 @@
                                                 <constraint firstItem="RDX-ST-a1Z" firstAttribute="leading" secondItem="Uxu-uX-jGV" secondAttribute="leading" constant="20" id="a2U-C0-RzA"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="LFv-wf-RPT" kind="show" id="F35-4G-Rgq"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="DYe-sj-NUl">
                                         <rect key="frame" x="0.0" y="56" width="540" height="56"/>
@@ -346,6 +350,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="27u-hq-ywx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1488" y="259"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="z69-gv-4UL">
+            <objects>
+                <viewController id="LFv-wf-RPT" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ony-YV-Mh3"/>
+                        <viewControllerLayoutGuide type="bottom" id="sgS-3z-Hq8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="f2q-wh-RZe">
+                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QLX-YP-qLv">
+                                <rect key="frame" x="79" y="106" width="382" height="273"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="273" id="jxI-Mi-t6v"/>
+                                    <constraint firstAttribute="width" constant="382" id="tCe-H3-yOC"/>
+                                </constraints>
+                                <string key="text">Mr. Dudets allows you to record 8 sounds and play and loop them in the way you want. YES, we know that there are tons of similar applications but we wanted something that suits us and what we will develop for ourselves and maybe for somebody else if you find it useful and entertaining.
+
+Have fun. Send us your feedback. Be Awesome!</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="QLX-YP-qLv" secondAttribute="trailing" constant="59" id="2u3-Pr-RRT"/>
+                            <constraint firstItem="QLX-YP-qLv" firstAttribute="top" secondItem="ony-YV-Mh3" secondAttribute="bottom" constant="42" id="5po-lB-OB6"/>
+                            <constraint firstItem="QLX-YP-qLv" firstAttribute="leading" secondItem="f2q-wh-RZe" secondAttribute="leadingMargin" constant="59" id="ENi-mT-7JY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="About" id="eZf-LC-lsz"/>
+                    <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5q9-Xb-fvg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1841.6015624999998" y="258.59375"/>
         </scene>
     </scenes>
     <resources>
