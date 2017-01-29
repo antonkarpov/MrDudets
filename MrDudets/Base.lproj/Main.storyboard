@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gUe-gp-sgp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gUe-gp-sgp">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -335,7 +335,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="dht-Ef-Wd2">
-                        <barButtonItem key="leftBarButtonItem" title="Lets dudets!" id="W9W-n2-Ohd">
+                        <barButtonItem key="leftBarButtonItem" title="Let's dudets!" id="W9W-n2-Ohd">
                             <connections>
                                 <action selector="letsDudetsAction:" destination="YaS-u0-EIZ" id="Dhd-6k-Zl8"/>
                             </connections>
